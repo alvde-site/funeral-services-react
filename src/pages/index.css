@@ -5,7 +5,8 @@
 /* header */
 @import url(../components/App/Header/Header.css);
 /* main */
-
+@import url(../components/App/Main/Main.css);
+@import url(../components/App/Main/Topnav/Topnav.css);
 /* footer */
 
 /* Старница не найдена */

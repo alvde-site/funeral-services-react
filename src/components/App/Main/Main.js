@@ -9,10 +9,12 @@ import Faq from "./Faq/Faq";
 import About from "./About/About";
 import Conditions from "./Conditions/Conditions";
 import Location from "./Location/Location";
+import Topnav from "./Topnav/Topnav";
 
 function Main() {
   return (
     <main className="content">
+      <Topnav />
       <Advertisement />
       <Competence />
       <Services />
