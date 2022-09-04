@@ -2,10 +2,8 @@
 @import url(../vendor/fonts/roboto.css);
 @import url(../components/App/App.css);
 
-/* signup & signin */
-
 /* header */
-
+@import url(../components/App/Header/Header.css);
 /* main */
 
 /* footer */
