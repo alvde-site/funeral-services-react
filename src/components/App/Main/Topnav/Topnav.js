@@ -1,4 +1,7 @@
-function Topnav() {
+function Topnav({onToggleBurger, isToggleBurger}) {
+  function handleToggleBurger() {
+    onToggleBurger();
+  }
   return (
     <section className="topnav">
       <nav className="topnav__content">
@@ -29,12 +32,12 @@ function Topnav() {
           </a>
         </div>
         <div className="topnav__links-wrapper">
-          <div className="burger-menu topnav__burger">
+          <div className={`burger-menu topnav__burger ${isToggleBurger ? "open" : ""}`} onClick={handleToggleBurger}>
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <ul className="topnav__links">
+          <ul className={`topnav__links ${isToggleBurger ? "topnav__links_opened" : ""}`}>
             <li>
               <a href="#id" className="topnav__link">
                 Каталог

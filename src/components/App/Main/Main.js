@@ -11,10 +11,10 @@ import Conditions from "./Conditions/Conditions";
 import Location from "./Location/Location";
 import Topnav from "./Topnav/Topnav";
 
-function Main() {
+function Main(props) {
   return (
     <main className="content">
-      <Topnav />
+      <Topnav onToggleBurger={props.onToggleBurger} isToggleBurger={props.isToggleBurger}/>
       <Advertisement />
       <Competence />
       <Services />
