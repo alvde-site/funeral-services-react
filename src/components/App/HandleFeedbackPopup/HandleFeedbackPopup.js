@@ -1,4 +1,11 @@
 function HandleFeedbackPopup(props) {
+  function handleSubmit(e) {
+    e.preventDefault();
+    let name = `${props.values["feedbackemail"] || ""}`;
+    let email = `${props.values["feedbacktel"] || ""}`;
+    console.log({name, email})
+  }
+
   function handleClosePopup() {
     props.onClose();
   }
@@ -22,7 +29,7 @@ function HandleFeedbackPopup(props) {
         >
           &#10006;
         </button>
-        <form action="#" name="feedbackform" className="form" noValidate>
+        <form action="#" name="feedbackform" className="form" noValidate onSubmit={handleSubmit}>
           <h2 className="form__title">Заказать звонок</h2>
           <label htmlFor="feedbackemail" className="form__field">
             <input
@@ -53,10 +60,10 @@ function HandleFeedbackPopup(props) {
             />
             <span id="error-tel" className="form__input-error"></span>
           </label>
-          <button className="form__submit" type="submit">
-            <span className="form__submit-text">
+          <button className={`form__submit ${!props.isValid ? "form__submit_disabled" : ""}`} type="submit" disabled={!props.isValid}>
+            <span className={`form__submit-text ${props.isValid ? "form__submit-text_hover" : ""}`}>
               <span className="form__submit-icon form__submit-icon_type_hidden">
-                {`&#10148`}
+                &#10148;
               </span>
               <span className="form__submit-icon">Бесплатная консультация</span>
             </span>
