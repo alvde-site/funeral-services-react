@@ -77,14 +77,6 @@
   transition: all 0.25s ease-in-out;
 }
 
-.topnav__links_opened {
-  display: block;
-  position: relative;
-  width: 100%;
-  max-height: 500px;
-  text-align: end;
-}
-
 .topnav__link {
   display: inline-block;
   padding: 7px 40px 7px 0;
@@ -184,6 +176,14 @@
     flex-direction: column;
     max-height: 0px;
     overflow: hidden;
+  }
+
+  .topnav__links_opened {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-height: 500px;
+    text-align: end;
   }
 }
 
