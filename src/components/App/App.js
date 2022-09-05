@@ -8,16 +8,21 @@ import PopupWithConfirmation from "./PopupWithConfirmation/PopupWithConfirmation
 
 function App() {
   const [isToggleBurger, setIsToggleBurger] = useState(false);
+  const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
   function handleToggleBurger() {
     setIsToggleBurger(!isToggleBurger);
   }
 
+  function handleOpenFeedbackForm() {
+    setIsOpenFeedBack(true);
+  }
+
   return (
     <div className="page">
-      <Header />
+      <Header onOpenFeedback={handleOpenFeedbackForm}/>
       <Main isToggleBurger={isToggleBurger} onToggleBurger={handleToggleBurger}/>
       <Footer />
-      <HandleFeedbackPopup />
+      <HandleFeedbackPopup  isOpenFeedBack={isOpenFeedBack}/>
       <ImagePopup />
       <PopupWithConfirmation />
     </div>

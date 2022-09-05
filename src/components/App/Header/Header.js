@@ -1,4 +1,7 @@
-function Header() {
+function Header({onOpenFeedback}) {
+  function handleOpenFeedback() {
+    onOpenFeedback();
+  }
   return (
     <header className="header">
       <div className="header__logo">
@@ -25,7 +28,7 @@ function Header() {
           </a>
         </li>
       </ul>
-      <button className="header__feedback">Заказать звонок</button>
+      <button className="header__feedback" onClick={handleOpenFeedback}>Заказать звонок</button>
     </header>
   );
 }

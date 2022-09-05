@@ -1,6 +1,6 @@
-function HandleFeedbackPopup() {
+function HandleFeedbackPopup({isOpenFeedBack}) {
   return (
-    <div className="popup popup_handle_feedback">
+    <div className={`popup popup_handle_feedback ${isOpenFeedBack ? "popup_opened": ""}`}>
       <div className="popup__container">
         <button className="popup__close" type="button" aria-label="Закрыть">
           &#10006;
