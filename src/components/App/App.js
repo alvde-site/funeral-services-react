@@ -17,12 +17,16 @@ function App() {
     setIsOpenFeedBack(true);
   }
 
+  function closeAllPopups() {
+    setIsOpenFeedBack(false);
+  }
+
   return (
     <div className="page">
       <Header onOpenFeedback={handleOpenFeedbackForm}/>
       <Main isToggleBurger={isToggleBurger} onToggleBurger={handleToggleBurger}/>
       <Footer />
-      <HandleFeedbackPopup  isOpenFeedBack={isOpenFeedBack}/>
+      <HandleFeedbackPopup  isOpenFeedBack={isOpenFeedBack} onClose={closeAllPopups}/>
       <ImagePopup />
       <PopupWithConfirmation />
     </div>

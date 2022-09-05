@@ -1,8 +1,11 @@
-function HandleFeedbackPopup({isOpenFeedBack}) {
+function HandleFeedbackPopup(props) {
+  function handleClosePopup() {
+    props.onClose();
+  }
   return (
-    <div className={`popup popup_handle_feedback ${isOpenFeedBack ? "popup_opened": ""}`}>
+    <div className={`popup popup_handle_feedback ${props.isOpenFeedBack ? "popup_opened": ""}`}>
       <div className="popup__container">
-        <button className="popup__close" type="button" aria-label="Закрыть">
+        <button className="popup__close" type="button" aria-label="Закрыть" onClick={handleClosePopup}>
           &#10006;
         </button>
         <form action="#" name="feedbackform" className="form" noValidate>
