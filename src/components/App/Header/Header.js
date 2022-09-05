@@ -1,6 +1,6 @@
-function Header({onOpenFeedback}) {
+function Header(props) {
   function handleOpenFeedback() {
-    onOpenFeedback();
+    props.onOpenFeedback();
   }
   return (
     <header className="header">

@@ -5,10 +5,14 @@ import Footer from "./Footer/Footer";
 import HandleFeedbackPopup from "./HandleFeedbackPopup/HandleFeedbackPopup";
 import ImagePopup from "./ImagePopup/ImagePopup";
 import PopupWithConfirmation from "./PopupWithConfirmation/PopupWithConfirmation";
+import { useFormWithValidation } from "../../utils/formValidator";
 
 function App() {
   const [isToggleBurger, setIsToggleBurger] = useState(false);
   const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
+  const { values, handleChange, errors, isValid, /*setIsValid*/ } =
+    useFormWithValidation();
+
   function handleToggleBurger() {
     setIsToggleBurger(!isToggleBurger);
   }
@@ -21,12 +25,27 @@ function App() {
     setIsOpenFeedBack(false);
   }
 
+  function handleRegister({ value }) {
+    console.log(value);
+  }
+
   return (
     <div className="page">
-      <Header onOpenFeedback={handleOpenFeedbackForm}/>
-      <Main isToggleBurger={isToggleBurger} onToggleBurger={handleToggleBurger}/>
+      <Header onOpenFeedback={handleOpenFeedbackForm} />
+      <Main
+        isToggleBurger={isToggleBurger}
+        onToggleBurger={handleToggleBurger}
+      />
       <Footer />
-      <HandleFeedbackPopup  isOpenFeedBack={isOpenFeedBack} onClose={closeAllPopups}/>
+      <HandleFeedbackPopup
+        isOpenFeedBack={isOpenFeedBack}
+        onClose={closeAllPopups}
+        onInputChange={handleChange}
+        values={values}
+        errors={errors}
+        isValid={isValid}
+        onRegister={handleRegister}
+      />
       <ImagePopup />
       <PopupWithConfirmation />
     </div>

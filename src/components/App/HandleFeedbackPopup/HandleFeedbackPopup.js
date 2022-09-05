@@ -2,36 +2,54 @@ function HandleFeedbackPopup(props) {
   function handleClosePopup() {
     props.onClose();
   }
+
+  function handleInputChange(e) {
+    props.onInputChange(e);
+  }
+
   return (
-    <div className={`popup popup_handle_feedback ${props.isOpenFeedBack ? "popup_opened": ""}`}>
+    <div
+      className={`popup popup_handle_feedback ${
+        props.isOpenFeedBack ? "popup_opened" : ""
+      }`}
+    >
       <div className="popup__container">
-        <button className="popup__close" type="button" aria-label="Закрыть" onClick={handleClosePopup}>
+        <button
+          className="popup__close"
+          type="button"
+          aria-label="Закрыть"
+          onClick={handleClosePopup}
+        >
           &#10006;
         </button>
         <form action="#" name="feedbackform" className="form" noValidate>
           <h2 className="form__title">Заказать звонок</h2>
-          <label htmlFor="email" className="form__field">
+          <label htmlFor="feedbackemail" className="form__field">
             <input
-              id="email"
+              id="feedbackemail"
               type="email"
               className="form__input form__input_add_name"
-              name="email"
+              name="feedbackemail"
               placeholder="Введите e-mail адрес"
               required
               minLength="2"
               maxLength="30"
+              value={props.values["feedbackemail"] || ""}
+              onChange={handleInputChange}
             />
             <span id="error-email" className="form__input-error"></span>
           </label>
-          <label htmlFor="tel" className="form__field">
+          <label htmlFor="feedbacktel" className="form__field">
             <input
-              id="tel"
+              id="feedbacktel"
               type="text"
               className="form__input form__input_add_link"
-              name="tel"
+              name="feedbacktel"
               placeholder="+375221112233"
               required
               pattern="\+375[0-9]{9}"
+              value={props.values["feedbacktel"] || ""}
+              onChange={handleInputChange}
             />
             <span id="error-tel" className="form__input-error"></span>
           </label>
@@ -43,7 +61,10 @@ function HandleFeedbackPopup(props) {
               <span className="form__submit-icon">Бесплатная консультация</span>
             </span>
           </button>
-          <label htmlFor="conditions" className="form__field form__field_type_row">
+          <label
+            htmlFor="conditions"
+            className="form__field form__field_type_row"
+          >
             <input
               className="form__checkbox"
               id="conditions"
