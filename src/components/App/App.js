@@ -10,7 +10,7 @@ import { useFormWithValidation } from "../../utils/formValidator";
 function App() {
   const [isToggleBurger, setIsToggleBurger] = useState(false);
   const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
-  const { values, handleChange, errors, isValid, /*setIsValid*/ } =
+  const { values, checks, handleChange, errors, isValid, /*setIsValid*/ } =
     useFormWithValidation();
 
   function handleToggleBurger() {
@@ -42,6 +42,7 @@ function App() {
         onClose={closeAllPopups}
         onInputChange={handleChange}
         values={values}
+        checks={checks}
         errors={errors}
         isValid={isValid}
         onRegister={handleRegister}

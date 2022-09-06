@@ -69,14 +69,15 @@ function HandleFeedbackPopup(props) {
             </span>
           </button>
           <label
-            htmlFor="conditions"
+            htmlFor="feedbackconditions"
             className="form__field form__field_type_row"
           >
             <input
               className="form__checkbox"
-              id="conditions"
+              id="feedbackconditions"
               type="checkbox"
               required
+              defaultChecked={props.checks["feedbackconditions"] || false}
             ></input>
             <span className="form__checkbox-item">&#10004;</span>
             <span className="form__conditions">Принимаю соглашение о </span>
