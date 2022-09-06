@@ -77,6 +77,7 @@ function HandleFeedbackPopup(props) {
               id="feedbackconditions"
               type="checkbox"
               required
+              onChange={handleInputChange}
               defaultChecked={props.checks["feedbackconditions"] || false}
             ></input>
             <span className="form__checkbox-item">&#10004;</span>
