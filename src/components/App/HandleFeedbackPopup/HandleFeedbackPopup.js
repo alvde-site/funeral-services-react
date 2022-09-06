@@ -41,6 +41,7 @@ function HandleFeedbackPopup(props) {
               required
               minLength="2"
               maxLength="30"
+              pattern="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}"
               value={props.values["feedbackemail"] || ""}
               onChange={handleInputChange}
             />
