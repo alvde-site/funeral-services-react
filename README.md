@@ -17,5 +17,12 @@
 * React, useState, useEffect, useHistory
 
 
-## ССылки
-* [Ссылка на выложенную на сервер работающую фронтенд часть приложения](https://alvde-mesto.nomoredomains.sbs/)
+### Breakpoints:
+* 1200px
+* 992px
+* 768px
+* 575px
+* 320px
+
+#### ССылки
+* [Ссылка на проект](http://alvde-site.byethost5.com/)
