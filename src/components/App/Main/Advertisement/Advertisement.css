@@ -18,28 +18,55 @@
   line-height: 52px;
   color: #fff;
   max-width: 540px;
-  margin: 0;
+  margin: 0 0 7px;
+}
+
+.advertisement__subtitle {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 37px;
+  color: #fff;
+  max-width: 540px;
+  margin: 0 0 55px;
 }
 
 @media (max-width: 1200px){
   .advertisement__content {
       max-width: 930px;
   }
+
+  .advertisement__title, .advertisement__subtitle {
+    max-width: 450px;
+  }
 }
 
 @media (max-width: 992px) {
+  .advertisement {
+    padding: 50px 0;
+  }
   .advertisement__content {
     max-width: 720px;
+  }
+
+  .advertisement__title, .advertisement__subtitle {
+    max-width: 330px;
   }
 }
 
 @media (max-width: 768px) {
   .advertisement {
+    padding: 50px 0 100px;
     background: #000;
   }
 
   .advertisement__content {
     max-width: 510px;
+  }
+
+  .advertisement__title, .advertisement__subtitle {
+    max-width: 100%;
   }
 }
 
