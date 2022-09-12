@@ -1,4 +1,4 @@
-import { burger, menu, topnavContacts, navContent, topnav } from "./constants.js";
+import { burger, menu } from "./constants.js";
 
 // Переключает меню бургера
 export const toggleBurger = () => {
@@ -6,31 +6,31 @@ export const toggleBurger = () => {
     menu.classList.toggle('topnav__links_opened');
 }
 
-const activateTopnavShadow = ()=> {
+const activateTopnavShadow = (topnav)=> {
   topnav.classList.add('topnav_on_shadow');
 }
 
-const deactivateTopnavShadow = ()=> {
+const deactivateTopnavShadow = (topnav)=> {
   topnav.classList.remove('topnav_on_shadow');
 }
 
-const activateTopnavContacts = ()=> {
-  topnavContacts.classList.add('topnav__contacts_active');
+const activateTopnavContacts = (topnavContacts)=> {
+  // topnavContacts.classList.add('topnav__contacts_active');
 }
 
-const deactivateTopnavContacts = ()=> {
-  topnavContacts.classList.remove('topnav__contacts_active');
+const deactivateTopnavContacts = (topnavContacts)=> {
+  // topnavContacts.classList.remove('topnav__contacts_active');
 }
 
 //Активирует тень когда topnav на верху
-const handleTopnavTopPosition = ()=> {
-  let topPosition = navContent.getBoundingClientRect().y;
+export const handleTopnavTopPosition = (topnav, topnavContacts)=> {
+  let topPosition = topnav.getBoundingClientRect().y;
     if(topPosition === 0) {
-      activateTopnavShadow();
-      activateTopnavContacts();
+      activateTopnavShadow(topnav);
+      activateTopnavContacts(topnavContacts);
     } else {
-      deactivateTopnavShadow();
-      deactivateTopnavContacts();
+      deactivateTopnavShadow(topnav);
+      deactivateTopnavContacts(topnavContacts);
     }
 }
 

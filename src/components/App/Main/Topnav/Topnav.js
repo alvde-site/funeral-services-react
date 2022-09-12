@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { handleTopnavTopPosition } from "../../../../utils/utils";
 
 function Topnav(props) {
   const topnav = useRef();
@@ -8,7 +9,8 @@ function Topnav(props) {
   }, [])
 
   function getTopPosition() {
-    console.log(topnav.current.getBoundingClientRect().y);
+    handleTopnavTopPosition(topnav.current);
+    // console.log(topnav.current.getBoundingClientRect().y);
   }
 
   function handleToggleBurger() {
