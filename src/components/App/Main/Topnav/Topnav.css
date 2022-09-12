@@ -20,6 +20,8 @@
 
 .topnav__contacts {
   display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .topnav__contacts_active {
