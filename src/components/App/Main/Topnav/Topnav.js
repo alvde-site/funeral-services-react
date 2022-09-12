@@ -9,7 +9,10 @@ function Topnav(props) {
   }, [])
 
   function getTopPosition() {
-    handleTopnavTopPosition(topnav.current);
+    const timer = setTimeout(() => {
+      handleTopnavTopPosition(topnav.current);
+    }, 100);
+    return () => clearTimeout(timer);
   }
 
   function handleToggleBurger() {
