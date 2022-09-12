@@ -14,7 +14,11 @@ import Topnav from "./Topnav/Topnav";
 function Main(props) {
   return (
     <main className="content">
-      <Topnav onToggleBurger={props.onToggleBurger} isToggleBurger={props.isToggleBurger}/>
+      <Topnav
+        onToggleBurger={props.onToggleBurger}
+        isToggleBurger={props.isToggleBurger}
+        getTopPosition={props.getTopPosition}
+      />
       <Advertisement />
       <Competence />
       <Services />

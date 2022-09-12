@@ -1,9 +1,24 @@
-function Topnav({onToggleBurger, isToggleBurger}) {
-  function handleToggleBurger() {
-    onToggleBurger();
+import { useEffect, useRef } from "react";
+
+function Topnav(props) {
+  const topnav = useRef();
+
+  useEffect(() => {
+    window.addEventListener("scroll", getTopPosition);
+  }, [])
+
+  function getTopPosition() {
+    console.log(topnav.current.getBoundingClientRect().y);
   }
+
+  function handleToggleBurger() {
+    props.onToggleBurger();
+  }
+
+
+
   return (
-    <section className="topnav">
+    <section className="topnav" ref={topnav}>
       <nav className="topnav__content">
         <ul className="contacts topnav__contacts">
           <li className="contacts__item">
@@ -32,12 +47,21 @@ function Topnav({onToggleBurger, isToggleBurger}) {
           </a>
         </div>
         <div className="topnav__links-wrapper">
-          <div className={`burger-menu topnav__burger ${isToggleBurger ? "open" : ""}`} onClick={handleToggleBurger}>
+          <div
+            className={`burger-menu topnav__burger ${
+              props.isToggleBurger ? "open" : ""
+            }`}
+            onClick={handleToggleBurger}
+          >
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <ul className={`topnav__links ${isToggleBurger ? "topnav__links_opened" : ""}`}>
+          <ul
+            className={`topnav__links ${
+              props.isToggleBurger ? "topnav__links_opened" : ""
+            }`}
+          >
             <li>
               <a href="#id" className="topnav__link">
                 Каталог
