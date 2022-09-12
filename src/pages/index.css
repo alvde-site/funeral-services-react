@@ -7,6 +7,7 @@
 /* main */
 @import url(../components/App/Main/Main.css);
 @import url(../components/App/Main/Topnav/Topnav.css);
+@import url(../components/App/Main/Advertisement/Advertisement.css);
 /* footer */
 /* popups */
 @import url(../components/App/HandleFeedbackPopup/HandleFeedbackPopup.css);

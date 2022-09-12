@@ -1,0 +1,50 @@
+.advertisement {
+  padding: 158px 0;
+  background: url("https://0622203.demo1.siteimperium.com/images/design/1.png") center/cover no-repeat;
+}
+
+.advertisement__content {
+  box-sizing: border-box;
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.advertisement__title {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 52px;
+  color: #fff;
+  max-width: 540px;
+  margin: 0;
+}
+
+@media (max-width: 1200px){
+  .advertisement__content {
+      max-width: 930px;
+  }
+}
+
+@media (max-width: 992px) {
+  .advertisement__content {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .advertisement {
+    background: #000;
+  }
+
+  .advertisement__content {
+    max-width: 510px;
+  }
+}
+
+@media (max-width: 575px) {
+  .advertisement__content {
+    width: 100%;
+  }
+}
