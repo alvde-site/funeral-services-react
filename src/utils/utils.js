@@ -14,23 +14,23 @@ const deactivateTopnavShadow = (topnav)=> {
   topnav.classList.remove('topnav_on_shadow');
 }
 
-const activateTopnavContacts = (topnavContacts)=> {
-  // topnavContacts.classList.add('topnav__contacts_active');
-}
+// const activateTopnavContacts = (topnavContacts)=> {
+//   // topnavContacts.classList.add('topnav__contacts_active');
+// }
 
-const deactivateTopnavContacts = (topnavContacts)=> {
-  // topnavContacts.classList.remove('topnav__contacts_active');
-}
+// const deactivateTopnavContacts = (topnavContacts)=> {
+//   // topnavContacts.classList.remove('topnav__contacts_active');
+// }
 
 //Активирует тень когда topnav на верху
-export const handleTopnavTopPosition = (topnav, topnavContacts)=> {
+export const handleTopnavTopPosition = (topnav)=> {
   let topPosition = topnav.getBoundingClientRect().y;
     if(topPosition === 0) {
       activateTopnavShadow(topnav);
-      activateTopnavContacts(topnavContacts);
+      //activateTopnavContacts();
     } else {
       deactivateTopnavShadow(topnav);
-      deactivateTopnavContacts(topnavContacts);
+      //deactivateTopnavContacts();
     }
 }
 

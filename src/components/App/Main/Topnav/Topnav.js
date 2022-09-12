@@ -10,7 +10,6 @@ function Topnav(props) {
 
   function getTopPosition() {
     handleTopnavTopPosition(topnav.current);
-    // console.log(topnav.current.getBoundingClientRect().y);
   }
 
   function handleToggleBurger() {

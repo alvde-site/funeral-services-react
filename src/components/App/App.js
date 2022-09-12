@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
@@ -18,14 +18,14 @@ function App() {
   //   getTopnavTopPosition();
   // })
 
-  useEffect(() => {
-    window.addEventListener("scroll", getTopnavTopPosition);
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener("scroll", getTopnavTopPosition);
+  // }, [])
 
-  const getTopnavTopPosition = () => {
-    // const topPosition = boxRef.current.getBoundingClientRect().y;
-    // setY(topPosition)
-  }
+  // const getTopnavTopPosition = () => {
+  //   // const topPosition = boxRef.current.getBoundingClientRect().y;
+  //   // setY(topPosition)
+  // }
 
   function handleToggleBurger() {
     setIsToggleBurger(!isToggleBurger);
@@ -49,7 +49,7 @@ function App() {
       <Main
         isToggleBurger={isToggleBurger}
         onToggleBurger={handleToggleBurger}
-        getTopPosition={getTopnavTopPosition}
+       // getTopPosition={getTopnavTopPosition}
       />
       <Footer />
       <HandleFeedbackPopup
