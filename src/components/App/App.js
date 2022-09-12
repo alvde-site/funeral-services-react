@@ -12,20 +12,6 @@ function App() {
   const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
   const { values, checks, handleChange, errors, isValid, /*setIsValid*/ } =
     useFormWithValidation();
-  //const [y, setY] = useState(0);
-
-  // useEffect(() => {
-  //   getTopnavTopPosition();
-  // })
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", getTopnavTopPosition);
-  // }, [])
-
-  // const getTopnavTopPosition = () => {
-  //   // const topPosition = boxRef.current.getBoundingClientRect().y;
-  //   // setY(topPosition)
-  // }
 
   function handleToggleBurger() {
     setIsToggleBurger(!isToggleBurger);

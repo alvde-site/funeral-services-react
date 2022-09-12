@@ -17,7 +17,6 @@ function Main(props) {
       <Topnav
         onToggleBurger={props.onToggleBurger}
         isToggleBurger={props.isToggleBurger}
-       // getTopPosition={props.getTopPosition}
       />
       <Advertisement />
       <Competence />
