@@ -18,7 +18,7 @@ function Main(props) {
         onToggleBurger={props.onToggleBurger}
         isToggleBurger={props.isToggleBurger}
       />
-      <Advertisement />
+      <Advertisement onOpenFeedback={props.onOpenFeedback}/>
       <Competence />
       <Services />
       <Advantages />

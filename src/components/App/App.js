@@ -35,7 +35,7 @@ function App() {
       <Main
         isToggleBurger={isToggleBurger}
         onToggleBurger={handleToggleBurger}
-       // getTopPosition={getTopnavTopPosition}
+        onOpenFeedback={handleOpenFeedbackForm}
       />
       <Footer />
       <HandleFeedbackPopup

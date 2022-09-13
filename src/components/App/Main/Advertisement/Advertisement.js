@@ -1,6 +1,6 @@
-function Advertisement() {
+function Advertisement(props) {
   function handleOpenFeedback() {
-    console.log("Открыть форму")
+    props.onOpenFeedback();
   }
 
   return (
