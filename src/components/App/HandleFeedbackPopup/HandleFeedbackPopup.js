@@ -3,7 +3,7 @@ function HandleFeedbackPopup(props) {
     e.preventDefault();
     let name = `${props.values["feedbackemail"] || ""}`;
     let email = `${props.values["feedbacktel"] || ""}`;
-    console.log({name, email})
+    console.log({ name, email });
   }
 
   function handleClosePopup() {
@@ -29,7 +29,13 @@ function HandleFeedbackPopup(props) {
         >
           &#10006;
         </button>
-        <form action="#" name="feedbackform" className="form" noValidate onSubmit={handleSubmit}>
+        <form
+          action="#"
+          name="feedbackform"
+          className="form"
+          noValidate
+          onSubmit={handleSubmit}
+        >
           <h2 className="form__title">Заказать звонок</h2>
           <label htmlFor="feedbackemail" className="form__field">
             <input
@@ -45,7 +51,9 @@ function HandleFeedbackPopup(props) {
               value={props.values["feedbackemail"] || ""}
               onChange={handleInputChange}
             />
-            <span id="error-email" className="form__input-error"></span>
+            <span id="error-email" className="form__input-error">
+              {props.errors["feedbackemail"] || ""}
+            </span>
           </label>
           <label htmlFor="feedbacktel" className="form__field">
             <input
@@ -59,10 +67,22 @@ function HandleFeedbackPopup(props) {
               value={props.values["feedbacktel"] || ""}
               onChange={handleInputChange}
             />
-            <span id="error-tel" className="form__input-error"></span>
+            <span id="error-tel" className="form__input-error">
+              {props.errors["feedbacktel"] || ""}
+            </span>
           </label>
-          <button className={`form__submit ${!props.isValid ? "form__submit_disabled" : ""}`} type="submit" disabled={!props.isValid}>
-            <span className={`form__submit-text ${props.isValid ? "form__submit-text_hover" : ""}`}>
+          <button
+            className={`form__submit ${
+              !props.isValid ? "form__submit_disabled" : ""
+            }`}
+            type="submit"
+            disabled={!props.isValid}
+          >
+            <span
+              className={`form__submit-text ${
+                props.isValid ? "form__submit-text_hover" : ""
+              }`}
+            >
               <span className="form__submit-icon form__submit-icon_type_hidden">
                 &#10148;
               </span>
@@ -86,6 +106,8 @@ function HandleFeedbackPopup(props) {
             <a
               className="form__conditions-link"
               href="https://0622203.demo1.siteimperium.com/privacy"
+              rel="noreferrer"
+              target="_blank"
             >
               персональных данных
             </a>
