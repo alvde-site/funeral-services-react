@@ -12,6 +12,7 @@ export function useFormWithValidation() {
     const name = target.name;
     const value = target.value;
     const check = target.value;
+    console.log(values)
     setValues({ ...values, [name]: value });
     setChecks({...checks, [name]: check})
     setErrors({ ...errors, [name]: target.validationMessage });

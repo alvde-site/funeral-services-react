@@ -96,6 +96,7 @@ function HandleFeedbackPopup(props) {
             <input
               className="form__checkbox"
               id="feedbackconditions"
+              name="feedbackconditions"
               type="checkbox"
               required
               onChange={handleInputChange}
@@ -111,7 +112,7 @@ function HandleFeedbackPopup(props) {
             >
               персональных данных
             </a>
-            <span id="error-conditions" className="form__input-error"></span>
+            <span id="error-conditions" className="form__input-error">{props.checks["feedbackconditions"] && `${props.errors["feedbackconditions"]}`}</span>
           </label>
         </form>
       </div>
