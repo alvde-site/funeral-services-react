@@ -1,0 +1,42 @@
+.competence {
+  position: relative;
+}
+
+.competence__content {
+  position: relative;
+  top: -30px;
+  max-width: 1140px;
+  display: grid;
+  grid-template-columns: repeat(3, 350px);
+  gap: 30px;
+  margin: 0 auto;
+  padding: 0 15px;
+  list-style: none;
+}
+
+.competence__card {
+  box-sizing: border-box;
+  display: flex;
+  padding: 30px 20px 40px;
+}
+
+@media (max-width: 1200px) {
+  .competence__content {
+    max-width: 930px;
+  }
+}
+
+@media (max-width: 992px) {
+  .competence__content {
+    top: -10px;
+    max-width: 690px;
+  }
+}
+
+@media (max-width: 768px) {
+  .competence__content {
+    grid-template-columns: repeat(1, 350px);
+    top: -30px;
+    max-width: 510px;
+  }
+}

@@ -20,7 +20,7 @@ function Competence() {
           <img className="competence__icon" src="https://0622203.demo1.siteimperium.com/images/design/location-1.png" alt="Работаем в регионах" />
           <div className="competence__desc">
             <h3 className="competence__title">Работаем в регионах</h3>
-            <p className="compentence__text"><div class="sppb-addon-text">Принимаем заказы по Зельвенскому, Мостовскому, Свислочскому районах</div></p>
+            <p className="compentence__text">Принимаем заказы по Зельвенскому, Мостовскому, Свислочскому районах</p>
           </div>
         </li>
       </ul>
