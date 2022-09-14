@@ -17,12 +17,16 @@
 .competence__card {
   box-sizing: border-box;
   display: flex;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 20px 0px rgb(174 174 192 / 50%);
+  border-radius: 10px;
   padding: 30px 20px 40px;
 }
 
 @media (max-width: 1200px) {
   .competence__content {
     max-width: 930px;
+    grid-template-columns: repeat(3, 290px);
   }
 }
 
@@ -30,12 +34,13 @@
   .competence__content {
     top: -10px;
     max-width: 690px;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .competence__content {
-    grid-template-columns: repeat(1, 350px);
+    grid-template-columns: repeat(1, 1fr);
     top: -30px;
     max-width: 510px;
   }
