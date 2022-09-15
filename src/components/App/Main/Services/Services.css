@@ -25,6 +25,8 @@
 }
 
 .services__catalog {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   max-width: 1140px;
   margin: 0 auto;
@@ -36,6 +38,9 @@
 }
 
 .services__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #000;
   padding-bottom: 25px;
 }
@@ -57,7 +62,6 @@
   line-height: 36px;
   color: #fff;
   margin: 0 0 8px;
-  text-align: center;
 }
 
 .services__desc {
@@ -80,7 +84,6 @@
   line-height: 28px;
   color: #FF9C22;
   margin: 0 0 24px;
-  text-align: center;
 }
 
 .services__feedback {
@@ -94,8 +97,8 @@
   color: #fff;
   background-color: transparent;
   min-width: 180px;
+  margin: auto 0 0;
   padding: 8px 0;
-  margin: 0 auto;
   border-radius: 100px;
   text-decoration: none;
   white-space: nowrap;
@@ -105,7 +108,7 @@
 
 .services__feedback:hover {
   background-color: #EC1000;
-  color: #fff;
+  border: 1px solid #EC1000;
 }
 
 @media (max-width: 1200px) {
