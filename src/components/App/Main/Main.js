@@ -20,7 +20,7 @@ function Main(props) {
       />
       <Advertisement onOpenFeedback={props.onOpenFeedback}/>
       <Competence />
-      <Services />
+      <Services onOpenFeedback={props.onOpenFeedback}/>
       <Advantages />
       <Benefits />
       <Portfolio />
