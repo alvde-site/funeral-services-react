@@ -13,6 +13,7 @@ function App() {
   const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
   const { values, checks, handleChange, errors, isValid, /*setIsValid*/ } =
     useFormWithValidation();
+  const [selectedImage, setSelectedImage] = useState({});
 
   function handleToggleBurger() {
     setIsToggleBurger(!isToggleBurger);
@@ -24,10 +25,16 @@ function App() {
 
   function closeAllPopups() {
     setIsOpenFeedBack(false);
+    setSelectedImage(false);
   }
 
   function handleRegister({ value }) {
     console.log(value);
+  }
+
+  function handleImageClick(imageSrc) {
+    imageSrc.isOpen = true;
+    setSelectedImage(imageSrc);
   }
 
   return (
@@ -38,6 +45,7 @@ function App() {
         onToggleBurger={handleToggleBurger}
         onOpenFeedback={handleOpenFeedbackForm}
         portfolioImages={portfolioImages}
+        onImageClick={handleImageClick}
       />
       <Footer />
       <HandleFeedbackPopup
@@ -50,7 +58,11 @@ function App() {
         isValid={isValid}
         onRegister={handleRegister}
       />
-      <ImagePopup />
+      <ImagePopup
+          portfolioImage={selectedImage}
+          onClose={closeAllPopups}
+          name="image-viewing"
+        />
       <PopupWithConfirmation />
     </div>
   );

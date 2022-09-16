@@ -8,8 +8,8 @@ function Portfolio(props) {
         {props.portfolioImages.map((portfolioImage, index) => {
           return (
             <PortfolioImage
-              portfolioImage={portfolioImage.src}
-              onCardClick={props.onCardClick}
+              portfolioImage={portfolioImage}
+              onImageClick={props.onImageClick}
               key={index}
             />
           );

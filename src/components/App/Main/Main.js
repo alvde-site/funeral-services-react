@@ -23,7 +23,7 @@ function Main(props) {
       <Services onOpenFeedback={props.onOpenFeedback}/>
       <Advantages />
       <Benefits />
-      <Portfolio portfolioImages={props.portfolioImages}/>
+      <Portfolio portfolioImages={props.portfolioImages} onImageClick={props.onImageClick}/>
       <Working />
       <Faq />
       <About />
