@@ -12,6 +12,7 @@
   align-items: center;
   transition-property: opacity, visibility;
   transition-duration: 1s, 1s;
+  z-index: 20;
 }
 
 .popup_opened {
