@@ -6,6 +6,7 @@ import HandleFeedbackPopup from "./HandleFeedbackPopup/HandleFeedbackPopup";
 import ImagePopup from "./ImagePopup/ImagePopup";
 import PopupWithConfirmation from "./PopupWithConfirmation/PopupWithConfirmation";
 import { useFormWithValidation } from "../../utils/formValidator";
+import {portfolioImages} from "../../utils/constants";
 
 function App() {
   const [isToggleBurger, setIsToggleBurger] = useState(false);
@@ -36,6 +37,7 @@ function App() {
         isToggleBurger={isToggleBurger}
         onToggleBurger={handleToggleBurger}
         onOpenFeedback={handleOpenFeedbackForm}
+        portfolioImages={portfolioImages}
       />
       <Footer />
       <HandleFeedbackPopup

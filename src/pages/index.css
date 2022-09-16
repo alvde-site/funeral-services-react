@@ -11,6 +11,7 @@
 @import url(../components/App/Main/Competence/Competence.css);
 @import url(../components/App/Main/Services/Services.css);
 @import url(../components/App/Main/Portfolio/Portfolio.css);
+@import url(../components/App/Main/Portfolio/PortfolioImage/PortfolioImage.css);
 /* footer */
 /* popups */
 @import url(../components/App/HandleFeedbackPopup/HandleFeedbackPopup.css);

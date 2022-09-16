@@ -13,3 +13,14 @@ export const formData = {
   inputErrorClass: 'form__input_type_error',
   errorClass: 'popup__input-error_active'
 }
+export const portfolioImages = [
+  {src: "https://0622203.demo1.siteimperium.com/images/2021/04/28/749e60814c1dff301415f750c68aa704-rimg-w3800-h2544-gmir.jpg"},
+  {src: "https://0622203.demo1.siteimperium.com/images/2021/04/28/749e60814c1dff301415f750c68aa704-rimg-w3800-h2544-gmir.jpg"},
+  {src: "https://0622203.demo1.siteimperium.com/images/2021/04/28/749e60814c1dff301415f750c68aa704-rimg-w3800-h2544-gmir.jpg"},
+  {src: "https://0622203.demo1.siteimperium.com/images/2021/04/28/749e60814c1dff301415f750c68aa704-rimg-w3800-h2544-gmir.jpg"},
+  {src: "https://0622203.demo1.siteimperium.com/images/2021/04/28/749e60814c1dff301415f750c68aa704-rimg-w3800-h2544-gmir.jpg"},
+  {src: "https://0622203.demo1.siteimperium.com/images/2021/04/28/749e60814c1dff301415f750c68aa704-rimg-w3800-h2544-gmir.jpg"},
+  {src: "https://0622203.demo1.siteimperium.com/images/2021/04/28/749e60814c1dff301415f750c68aa704-rimg-w3800-h2544-gmir.jpg"},
+  {src: "https://0622203.demo1.siteimperium.com/images/2021/04/28/749e60814c1dff301415f750c68aa704-rimg-w3800-h2544-gmir.jpg"},
+  {src: "https://0622203.demo1.siteimperium.com/images/2021/04/28/749e60814c1dff301415f750c68aa704-rimg-w3800-h2544-gmir.jpg"},
+]

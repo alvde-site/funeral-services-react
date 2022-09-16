@@ -24,20 +24,9 @@
   gap: 30px 90px;
 }
 
-.portfolio__image {
-  width: 100%;
-  height: 194px;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-
 @media (max-width: 1200px) {
   .portfolio__items {
     max-width: 960px;
-  }
-
-  .portfolio__image {
-    height: 154px;
   }
 }
 
@@ -49,10 +38,6 @@
   .portfolio__items {
     max-width: 720px;
   }
-
-  .portfolio__image {
-    height: 100px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -63,9 +48,5 @@
   .portfolio__items {
     max-width: 540px;
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  .portfolio__image {
-    height: 300px;
   }
 }
