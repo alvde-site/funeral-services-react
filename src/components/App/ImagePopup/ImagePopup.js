@@ -9,20 +9,19 @@ function ImagePopup(props) {
     >
       <div className="image-viewing">
         <button
-          className="popup__close"
+          className="popup__close popup__close_type_image-viewing"
           type="button"
           aria-label="Закрыть"
           onClick={props.onClose}
-        ></button>
+        >
+          &#10006;
+        </button>
         <figure className="image-viewing__img-card">
           <img
             src={props.portfolioImage.src}
             alt={"фото"}
             className="image-viewing__image"
           />
-          <figcaption className="image-viewing__caption">
-            {"подпись"}
-          </figcaption>
         </figure>
       </div>
     </div>
@@ -30,4 +29,3 @@ function ImagePopup(props) {
 }
 
 export default ImagePopup;
-
