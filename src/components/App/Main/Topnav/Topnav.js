@@ -11,7 +11,7 @@ function Topnav(props) {
   function getTopPosition() {
     const timer = setTimeout(() => {
       handleTopnavTopPosition(topnav.current);
-    }, 1000);
+    }, 100);
     return () => clearTimeout(timer);
   }
 
