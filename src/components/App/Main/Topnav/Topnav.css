@@ -117,7 +117,7 @@
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
-  /* transition: all 0.25s ease-in-out; */
+  transition: all 0.25s ease-in-out;
   transform-origin: left center;
 }
 
