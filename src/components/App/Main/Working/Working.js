@@ -5,6 +5,7 @@ function Working() {
       <ul className="working__content">
         <li className="working__item">
           <img
+            className="working__icon"
             src="https://0622203.demo1.siteimperium.com/images/2021/04/28/counseling-1.png"
             alt="Заявка"
           ></img>
@@ -16,6 +17,7 @@ function Working() {
         </li>
         <li className="working__item">
           <img
+            className="working__icon"
             src="https://0622203.demo1.siteimperium.com/images/2021/04/28/cemetery-1.png"
             alt="Заявка"
           ></img>
@@ -27,6 +29,7 @@ function Working() {
         </li>
         <li className="working__item">
           <img
+            className="working__icon"
             src="https://0622203.demo1.siteimperium.com/images/2021/04/28/church-2-1.png"
             alt="Заявка"
           ></img>
@@ -36,6 +39,7 @@ function Working() {
         </li>
         <li className="working__item">
           <img
+            className="working__icon"
             src="https://0622203.demo1.siteimperium.com/images/2021/04/28/angel-1.png"
             alt="Заявка"
           ></img>
