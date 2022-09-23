@@ -1,0 +1,63 @@
+.faq {
+  padding: 100px 0 60px;
+}
+
+.faq__title {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 43px;
+  color: #000;
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.faq__subtitle {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #888;
+  text-align: center;
+  margin: 0 0 68px;
+}
+
+.faq__content {
+  padding: 60px 0 60px;
+  background: url("https://0622203.demo1.siteimperium.com/images/design/rectangle-55-1.png") center/cover no-repeat;
+}
+
+.faq__content-items {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.faq__questions-wrapper {
+  max-width: 540px;
+}
+
+@media (max-width: 1200px) {
+  .faq__content-items {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .faq__content-items {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq__content {
+    background: #8B8B8B;
+  }
+
+  .faq__content-items {
+    max-width: 540px;
+  }
+}
