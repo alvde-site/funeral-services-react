@@ -25,7 +25,7 @@ function Main(props) {
       <Benefits />
       <Portfolio portfolioImages={props.portfolioImages} onImageClick={props.onImageClick}/>
       <Working />
-      <Faq />
+      <Faq questionsDataList={props.questionsDataList}/>
       <About />
       <Conditions />
       <Location />
