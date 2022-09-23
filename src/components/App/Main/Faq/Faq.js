@@ -6,84 +6,90 @@ function Faq() {
       <div className="faq__content">
         <div className="faq__content-items">
           <div className="faq__questions-wrapper">
-          <ul className="faq__questions">
-            <li className="faq__question-content">
-              <div className="faq__question">
-                <p className="faq__question">Как происходит оплата?</p>
-                <button
-                  className="faq__answer-button"
-                  area-label="Ответ на вопрос"
-                ></button>
-              </div>
-              <p className="faq__answer">
-                Оплата делится на две части, первая – предоплата, вносится при
-                заключении договора, и вторая – доплата вносится после
-                выполнения монтажных работ, либо по приему готового изделия в
-                офисе.
-              </p>
-            </li>
-            <li className="faq__question-content">
-              <div className="faq__question">
-                <p className="faq__question">Как долго стоит памятник?</p>
-                <button
-                  className="faq__answer-button"
-                  area-label="Ответ на вопрос"
-                ></button>
-              </div>
-              <p className="faq__answer">
-                Памятники из гранита отличаются своей долговечностью, и даже в
-                наших суровых погодных условиях сохраняют свои свойства и формы
-                веками.
-              </p>
-            </li>
-            <li className="faq__question-content">
-              <div className="faq__question">
-                <p className="faq__question">
-                  Какой материал выбрать для памятника - гранит или мрамор?
+            <ul className="faq__questions">
+              <li className="faq__question-content">
+                <div className="faq__question">
+                  <p className="faq__question-text">Как происходит оплата?</p>
+                  <button
+                    className="faq__answer-button"
+                    area-label="Ответ на вопрос"
+                    type="button"
+                  >&#10140;</button>
+                </div>
+                <p className="faq__answer">
+                  Оплата делится на две части, первая – предоплата, вносится при
+                  заключении договора, и вторая – доплата вносится после
+                  выполнения монтажных работ, либо по приему готового изделия в
+                  офисе.
                 </p>
-                <button
-                  className="faq__answer-button"
-                  area-label="Ответ на вопрос"
-                ></button>
-              </div>
-              <p className="faq__answer">
-                Гранит более практичен и долговечен, так же требует меньшего
-                ухода
-              </p>
-            </li>
-            <li className="faq__question-content">
-              <div className="faq__question">
-                <p className="faq__question">
-                  Могу ли я самостоятельно установить купленнный у вас памятник?
+              </li>
+              <li className="faq__question-content">
+                <div className="faq__question">
+                  <p className="faq__question-text">Как долго стоит памятник?</p>
+                  <button
+                    className="faq__answer-button"
+                    area-label="Ответ на вопрос"
+                    type="button"
+                  >&#10140;</button>
+                </div>
+                <p className="faq__answer">
+                  Памятники из гранита отличаются своей долговечностью, и даже в
+                  наших суровых погодных условиях сохраняют свои свойства и
+                  формы веками.
                 </p>
-                <button
-                  className="faq__answer-button"
-                  area-label="Ответ на вопрос"
-                ></button>
-              </div>
-              <p className="faq__answer">
-                Да, конечно, но стоит помнить о том, что гранит имеет высокую
-                плотность, следовательно – большой вес. Вес комплекта гранитного
-                памятника около 220 кг
-              </p>
-            </li>
-            <li className="faq__question-content">
-              <div className="faq__question">
-                <p className="faq__question">
-                  Даете ли вы гарантию на гранитные памятники?
+              </li>
+              <li className="faq__question-content">
+                <div className="faq__question">
+                  <p className="faq__question-text">
+                    Какой материал выбрать для памятника - гранит или мрамор?
+                  </p>
+                  <button
+                    className="faq__answer-button"
+                    area-label="Ответ на вопрос"
+                    type="button"
+                  >&#10140;</button>
+                </div>
+                <p className="faq__answer">
+                  Гранит более практичен и долговечен, так же требует меньшего
+                  ухода
                 </p>
-                <button
-                  className="faq__answer-button"
-                  area-label="Ответ на вопрос"
-                ></button>
-              </div>
-              <p className="faq__answer">
-                Да, гарантия на гранитные памятники в нашей мастерской
-                составляет 20 лет
-              </p>
-            </li>
-          </ul>
-          <button className="faq__feedback-button">Заказать</button>
+              </li>
+              <li className="faq__question-content">
+                <div className="faq__question">
+                  <p className="faq__question-text">
+                    Могу ли я самостоятельно установить купленнный у вас
+                    памятник?
+                  </p>
+                  <button
+                    className="faq__answer-button"
+                    area-label="Ответ на вопрос"
+                    type="button"
+                  >&#10140;</button>
+                </div>
+                <p className="faq__answer">
+                  Да, конечно, но стоит помнить о том, что гранит имеет высокую
+                  плотность, следовательно – большой вес. Вес комплекта
+                  гранитного памятника около 220 кг
+                </p>
+              </li>
+              <li className="faq__question-content">
+                <div className="faq__question">
+                  <p className="faq__question-text">
+                    Даете ли вы гарантию на гранитные памятники?
+                  </p>
+                  <button
+                    className="faq__answer-button"
+                    area-label="Ответ на вопрос"
+                    type="button"
+                  >&#10140;</button>
+                </div>
+                <p className="faq__answer">
+                  Да, гарантия на гранитные памятники в нашей мастерской
+                  составляет 20 лет
+                </p>
+              </li>
+            </ul>
+            <button className="faq__feedback-button">Заказать</button>
           </div>
         </div>
       </div>
