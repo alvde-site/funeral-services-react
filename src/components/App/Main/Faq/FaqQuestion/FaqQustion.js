@@ -1,12 +1,19 @@
+import {useState} from "react";
+
 function FaqQuestion({questionData}) {
+  const [isQuestionOpen, setIsQuestionOpen] = useState(false);
+  function handleClick() {
+    setIsQuestionOpen(!isQuestionOpen);
+  }
   return (
     <li className="faq__question-content">
       <div className="faq__question">
-        <p className="faq__question-text">{questionData.question}</p>
+        <p className={`faq__question-text ${isQuestionOpen ? "faq__question-text_active": ""}`}>{questionData.question}</p>
         <button
-          className="faq__answer-button"
+          className={`faq__answer-button ${isQuestionOpen ? "faq__answer-button_active": ""}`}
           area-label="Ответ на вопрос"
           type="button"
+          onClick={handleClick}
         >
           &#10140;
         </button>
