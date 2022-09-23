@@ -18,7 +18,7 @@ function FaqQuestion({questionData}) {
           &#10140;
         </button>
       </div>
-      <p className="faq__answer">{questionData.answer}</p>
+      <p className={`faq__answer ${isQuestionOpen ? "faq__answer_active": ""}`}>{questionData.answer}</p>
     </li>
   );
 }

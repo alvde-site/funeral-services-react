@@ -4,7 +4,6 @@
   border-radius: 30px;
   margin: 0 0 15px;
   padding: 13px 38px 13px 35px;
-  overflow: hidden;
 }
 
 .faq__question {
@@ -55,4 +54,11 @@
   font-size: 16px;
   line-height: 1.5;
   margin: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+  max-height: 0px;
+}
+
+.faq__answer_active {
+  max-height: 100px;
 }
