@@ -2,7 +2,7 @@ function Services (props) {
   function handleOpenFeedback() {
     props.onOpenFeedback();
   }
-  return (<section className="services">
+  return (<section className="services" id={"services"}>
     <h2 className="services__title">Каталог памятников</h2>
     <p className="services__subtitle">Поможем вам с любой задачей</p>
     <ul className="services__catalog">

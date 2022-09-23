@@ -5,7 +5,7 @@ function Faq(props) {
     props.onOpenFeedback();
   }
   return (
-    <section className="faq">
+    <section className="faq" id={"faq"}>
       <h1 className="faq__title">Часто задаваемые вопросы</h1>
       <p className="faq__subtitle">Ответы на ваши часто задаваемые вопросы</p>
       <div className="faq__content">

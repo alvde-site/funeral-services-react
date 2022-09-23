@@ -67,27 +67,27 @@ function Topnav(props) {
             }`}
           >
             <li>
-              <a href="#id" className="topnav__link">
+              <a href="/#services" className="topnav__link">
                 Каталог
               </a>
             </li>
             <li>
-              <a href="#id" className="topnav__link">
+              <a href="/#advantages" className="topnav__link">
                 Преимущества
               </a>
             </li>
             <li>
-              <a href="#id" className="topnav__link">
+              <a href="/#portfolio" className="topnav__link">
                 Портфолио
               </a>
             </li>
             <li>
-              <a href="#id" className="topnav__link">
+              <a href="/#working" className="topnav__link">
                 Этапы работы
               </a>
             </li>
             <li>
-              <a href="#id" className="topnav__link">
+              <a href="/#faq" className="topnav__link">
                 Вопрос-ответ
               </a>
             </li>

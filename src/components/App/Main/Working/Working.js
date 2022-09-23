@@ -1,6 +1,6 @@
 function Working() {
   return (
-    <section className="working">
+    <section className="working" id={"working"}>
       <h1 className="working__title">Как мы работаем</h1>
       <ul className="working__content">
         <li className="working__item">

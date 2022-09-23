@@ -1,5 +1,5 @@
 function Advantages () {
-  return (<section className="advantages"></section>)
+  return (<section className="advantages" id={"advantages"}></section>)
 }
 
 export default Advantages;
