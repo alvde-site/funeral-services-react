@@ -18,14 +18,20 @@ function Main(props) {
         onToggleBurger={props.onToggleBurger}
         isToggleBurger={props.isToggleBurger}
       />
-      <Advertisement onOpenFeedback={props.onOpenFeedback}/>
+      <Advertisement onOpenFeedback={props.onOpenFeedback} />
       <Competence />
-      <Services onOpenFeedback={props.onOpenFeedback}/>
+      <Services onOpenFeedback={props.onOpenFeedback} />
       <Advantages />
       <Benefits />
-      <Portfolio portfolioImages={props.portfolioImages} onImageClick={props.onImageClick}/>
+      <Portfolio
+        portfolioImages={props.portfolioImages}
+        onImageClick={props.onImageClick}
+      />
       <Working />
-      <Faq questionsDataList={props.questionsDataList}/>
+      <Faq
+        questionsDataList={props.questionsDataList}
+        onOpenFeedback={props.onOpenFeedback}
+      />
       <About />
       <Conditions />
       <Location />
