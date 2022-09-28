@@ -40,7 +40,7 @@ function App() {
         if (res.token) {
           localStorage.setItem("token", res.token);
           // setToken(res.token);
-         setIsInvalidToken(false);
+          setIsInvalidToken(false);
           return res;
         } else {
           return;
@@ -89,20 +89,27 @@ function App() {
   return (
     <div className="page">
       <Routes>
-        <Route exact path="/">
-          <Header onOpenFeedback={handleOpenFeedbackForm} />
-          <Main
-            isToggleBurger={isToggleBurger}
-            onToggleBurger={handleToggleBurger}
-            onOpenFeedback={handleOpenFeedbackForm}
-            portfolioImages={portfolioImages}
-            questionsDataList={questionsDataList}
-            onImageClick={handleImageClick}
-          />
-          <Footer />
-        </Route>
-        <Route exact path="/signin">
-          {loggedIn ? (
+        <Route
+          exact
+          path="/"
+          element={
+            <>
+              <Header onOpenFeedback={handleOpenFeedbackForm} />
+              <Main
+                isToggleBurger={isToggleBurger}
+                onToggleBurger={handleToggleBurger}
+                onOpenFeedback={handleOpenFeedbackForm}
+                portfolioImages={portfolioImages}
+                questionsDataList={questionsDataList}
+                onImageClick={handleImageClick}
+              />
+              <Footer />
+            </>
+          }
+        ></Route>
+        <Route exact path="/signin" element={
+          <>
+            {loggedIn ? (
             <Navigate to="/" />
           ) : (
             <Login
@@ -115,6 +122,8 @@ function App() {
               // isLoading={isLoading}
             />
           )}
+          </>
+        }>
         </Route>
       </Routes>
       <HandleFeedbackPopup
