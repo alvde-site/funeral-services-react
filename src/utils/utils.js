@@ -25,7 +25,10 @@ const deactivateTopnavContacts = (topnavContacts)=> {
 //Активирует тень когда topnav на верху
 export const handleTopnavTopPosition = (topnav)=> {
   const topnavContacts = document.querySelector(".topnav__contacts")
-  let topPosition = topnav.getBoundingClientRect().y;
+  if(!topnav) {
+   return;
+  } else {
+    let topPosition = topnav.getBoundingClientRect().y;
     if(topPosition === 0) {
       activateTopnavShadow(topnav);
       activateTopnavContacts(topnavContacts);
@@ -33,6 +36,7 @@ export const handleTopnavTopPosition = (topnav)=> {
       deactivateTopnavShadow(topnav);
       deactivateTopnavContacts(topnavContacts);
     }
+  }
 }
 
 // Отображает контакты на ширине 768-992px
