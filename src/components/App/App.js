@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  // useNavigate,
+  Navigate,
+} from "react-router-dom";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
@@ -14,8 +19,8 @@ import { portfolioImages, questionsDataList } from "../../utils/constants";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [isInvalidToken, setIsInvalidToken] = useState(false);
-  const [token, setToken] = useState("");
+  // const [isInvalidToken, setIsInvalidToken] = useState(false);
+  // const [token, setToken] = useState("");
   const [isToggleBurger, setIsToggleBurger] = useState(false);
   const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
   const { values, checks, handleChange, errors, isValid /*setIsValid*/ } =
@@ -23,14 +28,14 @@ function App() {
   const [selectedImage, setSelectedImage] = useState({});
   const [clients, setClients] = useState([]);
 
-  const history = useNavigate();
+  // const history = useNavigate();
 
   function tokenCheck() {
     // если у пользователя есть токен в localStorage,
     // эта функция проверит, действующий он или нет
     if (localStorage.getItem("token")) {
       const jwt = localStorage.getItem("token");
-      setToken(jwt);
+      // setToken(jwt);
       // здесь будем проверять токен
       if (jwt) {
         // проверим токен
@@ -40,14 +45,14 @@ function App() {
               setLoggedIn(true);
               setClients(res);
               // setSubmitError("");
-              setIsInvalidToken(false);
+              // setIsInvalidToken(false);
             }
           })
           .catch((err) => {
             if (err === "Ошибка 401") {
               setLoggedIn(false);
               // setSubmitError("Неверный логин или пароль");
-              setIsInvalidToken(true);
+              // setIsInvalidToken(true);
             }
             console.log(`${err}`);
           });
@@ -71,7 +76,7 @@ function App() {
         if (res.token) {
           localStorage.setItem("token", res.token);
           // setToken(res.token);
-          setIsInvalidToken(false);
+         //  setIsInvalidToken(false);
           return res;
         } else {
           return;
