@@ -20,7 +20,7 @@ import { portfolioImages, questionsDataList } from "../../utils/constants";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   // const [isInvalidToken, setIsInvalidToken] = useState(false);
-  // const [token, setToken] = useState("");
+  const [token, setToken] = useState("");
   const [isToggleBurger, setIsToggleBurger] = useState(false);
   const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
   const { values, checks, handleChange, errors, isValid /*setIsValid*/ } =
@@ -35,7 +35,7 @@ function App() {
     // эта функция проверит, действующий он или нет
     if (localStorage.getItem("token")) {
       const jwt = localStorage.getItem("token");
-      // setToken(jwt);
+      setToken(jwt);
       // здесь будем проверять токен
       if (jwt) {
         // проверим токен
@@ -113,8 +113,21 @@ function App() {
     setSelectedImage(false);
   }
 
-  function handleRegister({ value }) {
-    console.log(value);
+  function handleCreateClient({ email, phone }) {
+    MainApiSet.createClient({email, phone}, token)
+    .then((res) => {
+      console.log(res);
+      closeAllPopups();
+    })
+    .catch((err) => {
+      if (err === "Ошибка 401") {
+        // setSubmitError("Неверный логин или пароль");
+      }
+      console.log("err", err);
+    })
+    .finally(() => {
+      // setIsLoading(false);
+    });
   }
 
   function handleImageClick(imageSrc) {
@@ -178,7 +191,7 @@ function App() {
         checks={checks}
         errors={errors}
         isValid={isValid}
-        onRegister={handleRegister}
+        onCreateClient={handleCreateClient}
       />
       <ImagePopup
         portfolioImage={selectedImage}

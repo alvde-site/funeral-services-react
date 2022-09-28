@@ -38,7 +38,7 @@ class MainApi {
     }).then(this._checkResponse);
   }
 
-  createClient({ email, phone, status, description }, token) {
+  createClient({ email, phone }, token) {
     return fetch(`${this._baseUrl}/clients`, {
       method: "POST",
       headers: {
@@ -50,8 +50,6 @@ class MainApi {
       body: JSON.stringify({
         email,
         phone,
-        status,
-        description,
       }),
     }).then(this._checkResponse);
   }

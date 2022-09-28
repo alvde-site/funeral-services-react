@@ -1,9 +1,9 @@
 function HandleFeedbackPopup(props) {
   function handleSubmit(e) {
     e.preventDefault();
-    let name = `${props.values["feedbackemail"] || ""}`;
-    let email = `${props.values["feedbacktel"] || ""}`;
-    console.log({ name, email });
+    let email = `${props.values["feedbackemail"] || ""}`;
+    let phone = `${props.values["feedbacktel"] || ""}`;
+    props.onCreateClient({ email, phone });
   }
 
   function handleClosePopup() {
