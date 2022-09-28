@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
+import Clients from "./Clients/Clients";
 import { MainApiSet } from "../../utils/MainApi";
 import Login from "./Login/Login";
 import HandleFeedbackPopup from "./HandleFeedbackPopup/HandleFeedbackPopup";
@@ -14,19 +15,49 @@ import { portfolioImages, questionsDataList } from "../../utils/constants";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [isInvalidToken, setIsInvalidToken] = useState(false);
+  const [token, setToken] = useState("");
   const [isToggleBurger, setIsToggleBurger] = useState(false);
   const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
   const { values, checks, handleChange, errors, isValid /*setIsValid*/ } =
     useFormWithValidation();
   const [selectedImage, setSelectedImage] = useState({});
+  const [clients, setClients] = useState([]);
 
   const history = useNavigate();
 
-  useEffect(() => {
-    if (isInvalidToken) {
-      history.push("/signin");
+  function tokenCheck() {
+    // если у пользователя есть токен в localStorage,
+    // эта функция проверит, действующий он или нет
+    if (localStorage.getItem("token")) {
+      const jwt = localStorage.getItem("token");
+      setToken(jwt);
+      // здесь будем проверять токен
+      if (jwt) {
+        // проверим токен
+        MainApiSet.getContent(jwt)
+          .then((res) => {
+            if (res) {
+              setLoggedIn(true);
+              setClients(res);
+              // setSubmitError("");
+              setIsInvalidToken(false);
+            }
+          })
+          .catch((err) => {
+            if (err === "Ошибка 401") {
+              setLoggedIn(false);
+              // setSubmitError("Неверный логин или пароль");
+              setIsInvalidToken(true);
+            }
+            console.log(`${err}`);
+          });
+      }
     }
-  }, [isInvalidToken, history]);
+  }
+
+  useEffect(() => {
+    tokenCheck();
+  }, []);
 
   function handleLogin({ password, email }) {
     // setIsLoading(true);
@@ -107,24 +138,32 @@ function App() {
             </>
           }
         ></Route>
-        <Route exact path="/signin" element={
-          <>
-            {loggedIn ? (
-            <Navigate to="/" />
-          ) : (
-            <Login
-              onInputChange={handleChange}
-              values={values}
-              errors={errors}
-              isValid={isValid}
-              onLogin={handleLogin}
-              // submitError={submitError}
-              // isLoading={isLoading}
-            />
-          )}
-          </>
-        }>
-        </Route>
+        <Route
+          exact
+          path="/signin"
+          element={
+            <>
+              {loggedIn ? (
+                <Navigate to="/clients" />
+              ) : (
+                <Login
+                  onInputChange={handleChange}
+                  values={values}
+                  errors={errors}
+                  isValid={isValid}
+                  onLogin={handleLogin}
+                  // submitError={submitError}
+                  // isLoading={isLoading}
+                />
+              )}
+            </>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/clients"
+          element={<Clients clients={clients} />}
+        ></Route>
       </Routes>
       <HandleFeedbackPopup
         isOpenFeedBack={isOpenFeedBack}

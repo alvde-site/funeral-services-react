@@ -69,7 +69,7 @@ class MainApi {
   }
 
   getContent = (token) => {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return fetch(`${this._baseUrl}/clients`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
