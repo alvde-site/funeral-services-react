@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import {
   Route,
   Routes,
-  // useNavigate,
-  Navigate,
+  useNavigate,
 } from "react-router-dom";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
@@ -20,7 +19,7 @@ import { portfolioImages, questionsDataList } from "../../utils/constants";
 import ScrollUp from "./ScrollUp/ScrollUp";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   // const [isInvalidToken, setIsInvalidToken] = useState(false);
   const [token, setToken] = useState("");
   const [isToggleBurger, setIsToggleBurger] = useState(false);
@@ -30,7 +29,7 @@ function App() {
   const [selectedImage, setSelectedImage] = useState({});
   const [clients, setClients] = useState([]);
 
-  // const history = useNavigate();
+  const navigate = useNavigate();
 
   function tokenCheck() {
     // если у пользователя есть токен в localStorage,
@@ -88,7 +87,7 @@ function App() {
         if (res.token) {
           // setSubmitError("");
           setLoggedIn(true);
-          // history.push("/movies");
+          navigate("/clients");
         }
       })
       .catch((err) => {
@@ -163,10 +162,6 @@ function App() {
           exact
           path="/signin"
           element={
-            <>
-              {loggedIn ? (
-                <Navigate to="/clients" />
-              ) : (
                 <Login
                   onInputChange={handleChange}
                   values={values}
@@ -176,9 +171,7 @@ function App() {
                   // submitError={submitError}
                   // isLoading={isLoading}
                 />
-              )}
-            </>
-          }
+              }
         ></Route>
         <Route element={<ProtectedRoute loggedIn={loggedIn}/>}>
           <Route
