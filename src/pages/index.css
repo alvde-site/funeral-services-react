@@ -19,6 +19,8 @@
 @import url(../components/App/Main/Conditions/Conditions.css);
 /* footer */
 @import url(../components/App/Footer/Footer.css);
+/* Кнопка наверх */
+@import url(../components/App/ScrollUp/ScrollUp.css);
 /* login */
 @import url(../components/App/Login/Login.css);
 /* popups */

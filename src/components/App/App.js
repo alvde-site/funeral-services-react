@@ -16,6 +16,7 @@ import ImagePopup from "./ImagePopup/ImagePopup";
 import PopupWithConfirmation from "./PopupWithConfirmation/PopupWithConfirmation";
 import { useFormWithValidation } from "../../utils/formValidator";
 import { portfolioImages, questionsDataList } from "../../utils/constants";
+import ScrollUp from "./ScrollUp/ScrollUp";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -153,6 +154,7 @@ function App() {
                 onImageClick={handleImageClick}
               />
               <Footer />
+              <ScrollUp />
             </>
           }
         ></Route>

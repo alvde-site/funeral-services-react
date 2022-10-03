@@ -1,0 +1,22 @@
+.scrollup {
+  box-sizing: border-box;
+  position: fixed;
+  display: block;
+  text-decoration: none;
+  transform: rotate(90deg);
+  color: #fff;
+  bottom: 100px;
+  right: 30px;
+  text-align: center;
+  font-size: 36px;
+  line-height: 22px;
+  width: 36px;
+  height: 36px;
+  background-color: #333;
+  border-radius: 3px;
+  padding: 8px;
+}
+
+.scrollup:hover {
+  background-color: #444;
+}
