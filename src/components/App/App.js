@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {
+  Navigate,
   Route,
   Routes,
   useNavigate,
@@ -161,7 +162,7 @@ function App() {
         <Route
           exact
           path="/signin"
-          element={
+          element={!loggedIn ?
                 <Login
                   onInputChange={handleChange}
                   values={values}
@@ -171,7 +172,7 @@ function App() {
                   // submitError={submitError}
                   // isLoading={isLoading}
                 />
-              }
+              : <Navigate to="/clients"/> }
         ></Route>
         <Route element={<ProtectedRoute loggedIn={loggedIn}/>}>
           <Route
