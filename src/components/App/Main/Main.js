@@ -33,7 +33,7 @@ function Main(props) {
         onOpenFeedback={props.onOpenFeedback}
       />
       <About />
-      <Conditions />
+      <Conditions onOpenFeedback={props.onOpenFeedback} />
       <Location />
     </main>
   );

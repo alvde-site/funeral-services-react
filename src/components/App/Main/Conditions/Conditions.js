@@ -1,4 +1,7 @@
-function Conditions() {
+function Conditions(props) {
+  function handleOpenFeedback() {
+    props.onOpenFeedback();
+  }
   return (
     <section className="conditions">
       <div className="conditions__content">
@@ -17,6 +20,12 @@ function Conditions() {
           </li>
           <li className="conditions__list-item">Рассрочка до 6 месяцев</li>
         </ul>
+        <button
+              className="conditions__feedback-button"
+              onClick={handleOpenFeedback}
+            >
+              Заказать
+            </button>
       </div>
     </section>
   );
