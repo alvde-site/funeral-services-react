@@ -64,7 +64,7 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
-  }, []);
+  }, [loggedIn]);
 
   function handleLogin({ password, email }) {
     // setIsLoading(true);
