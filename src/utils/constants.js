@@ -4,6 +4,7 @@ export const navContent = document.querySelector(".topnav__content");
 export const topnav = document.querySelector(".topnav");
 export const menu = document.querySelector(".topnav__links");
 export const topnavContacts = document.querySelector(".topnav__contacts");
+export const scrollUpButton = document.queryCommandValue(".scrollup");
 export const formData = {
   formSelector: ".form",
   inputSelector: ".form__input",

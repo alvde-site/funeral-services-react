@@ -1,7 +1,7 @@
 .scrollup {
   box-sizing: border-box;
   position: fixed;
-  display: block;
+  display: none;
   text-decoration: none;
   transform: rotate(90deg);
   color: #fff;
@@ -19,4 +19,8 @@
 
 .scrollup:hover {
   background-color: #444;
+}
+
+.scrollup_active {
+  display: block;
 }

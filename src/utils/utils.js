@@ -22,9 +22,19 @@ const deactivateTopnavContacts = (topnavContacts)=> {
   topnavContacts.classList.remove('topnav__contacts_active');
 }
 
+//Работа с кнопкой наверх при скоролле
+ const activateScrollUpButton = (button)=> {
+  button.classList.add('scrollup_active');
+ }
+
+ const deactivateScrollUpButton = (button)=> {
+  button.classList.remove('scrollup_active');
+ }
+
 //Активирует тень когда topnav на верху
 export const handleTopnavTopPosition = (topnav)=> {
-  const topnavContacts = document.querySelector(".topnav__contacts")
+  const topnavContacts = document.querySelector(".topnav__contacts");
+  const scrollUpButton = document.querySelector(".scrollup");
   if(!topnav) {
    return;
   } else {
@@ -32,9 +42,11 @@ export const handleTopnavTopPosition = (topnav)=> {
     if(topPosition === 0) {
       activateTopnavShadow(topnav);
       activateTopnavContacts(topnavContacts);
+      activateScrollUpButton(scrollUpButton);
     } else {
       deactivateTopnavShadow(topnav);
       deactivateTopnavContacts(topnavContacts);
+      deactivateScrollUpButton(scrollUpButton);
     }
   }
 }
