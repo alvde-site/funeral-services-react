@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Footer from "./Footer/Footer";
 import Clients from "./Clients/Clients";
 import { MainApiSet } from "../../utils/MainApi";
@@ -19,7 +20,7 @@ import { portfolioImages, questionsDataList } from "../../utils/constants";
 import ScrollUp from "./ScrollUp/ScrollUp";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   // const [isInvalidToken, setIsInvalidToken] = useState(false);
   const [token, setToken] = useState("");
   const [isToggleBurger, setIsToggleBurger] = useState(false);
@@ -77,7 +78,7 @@ function App() {
         if (res.token) {
           localStorage.setItem("token", res.token);
           // setToken(res.token);
-         //  setIsInvalidToken(false);
+          //  setIsInvalidToken(false);
           return res;
         } else {
           return;
@@ -115,20 +116,20 @@ function App() {
   }
 
   function handleCreateClient({ email, phone }) {
-    MainApiSet.createClient({email, phone}, token)
-    .then((res) => {
-      console.log(res);
-      closeAllPopups();
-    })
-    .catch((err) => {
-      if (err === "Ошибка 401") {
-        // setSubmitError("Неверный логин или пароль");
-      }
-      console.log("err", err);
-    })
-    .finally(() => {
-      // setIsLoading(false);
-    });
+    MainApiSet.createClient({ email, phone }, token)
+      .then((res) => {
+        console.log(res);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        if (err === "Ошибка 401") {
+          // setSubmitError("Неверный логин или пароль");
+        }
+        console.log("err", err);
+      })
+      .finally(() => {
+        // setIsLoading(false);
+      });
   }
 
   function handleImageClick(imageSrc) {
@@ -179,11 +180,13 @@ function App() {
             </>
           }
         ></Route>
-        <Route
-          exact
-          path="/clients"
-          element={<Clients clients={clients} />}
-        ></Route>
+        <Route element={<ProtectedRoute loggedIn={loggedIn}/>}>
+          <Route
+            exact
+            path="/clients"
+            element={<Clients clients={clients} />}
+          />
+        </Route>
       </Routes>
       <HandleFeedbackPopup
         isOpenFeedBack={isOpenFeedBack}
