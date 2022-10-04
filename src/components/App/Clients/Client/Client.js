@@ -1,24 +1,33 @@
 import {useState} from "react";
 
 function Client({client}) {
-  const [isQuestionOpen, setIsQuestionOpen] = useState(false);
+  const [isClientOpen, setIsClientOpen] = useState(false);
   function handleClick() {
-    setIsQuestionOpen(!isQuestionOpen);
+    setIsClientOpen(!isClientOpen);
   }
   return (
-    <li className="faq__question-content">
-      <div className="faq__question">
-        <p className={`faq__question-text ${isQuestionOpen ? "faq__question-text_active": ""}`}>{client.email}</p>
+    <li className="clients__item">
+      <div className="clients__data">
+        <p className="clients__email">{client.email}</p>
+        <p className="clients__phone">{client.phone}</p>
+        <p className="clients__status">{client.status}</p>
         <button
-          className={`faq__answer-button ${isQuestionOpen ? "faq__answer-button_active": ""}`}
-          area-label="Ответ на вопрос"
+          className={`clienst__edit-button`}
+          area-label="Редактировать"
+          type="button"
+        >
+          &#10140;
+        </button>
+        <button
+          className={`clienst__more-button ${isClientOpen ? "clienst__more-button_active": ""}`}
+          area-label="Комментарии к клиенту"
           type="button"
           onClick={handleClick}
         >
           &#10140;
         </button>
       </div>
-      <p className={`faq__answer ${isQuestionOpen ? "faq__answer_active": ""}`}>{client.phone}</p>
+      <p className={`clients__description ${isClientOpen ? "clients__description_active": ""}`}>{client.description}</p>
     </li>
   );
 }

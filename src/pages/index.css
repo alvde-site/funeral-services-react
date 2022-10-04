@@ -25,6 +25,7 @@
 @import url(../components/App/Login/Login.css);
 /* Clients */
 @import url(../components/App/Clients/Clients.css);
+@import url(../components/App/Clients/Client/Client.css);
 /* popups */
 @import url(../components/App/HandleFeedbackPopup/HandleFeedbackPopup.css);
 @import url(../components/App/ImagePopup/ImagePopup.css);
