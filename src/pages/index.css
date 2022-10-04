@@ -23,6 +23,8 @@
 @import url(../components/App/ScrollUp/ScrollUp.css);
 /* login */
 @import url(../components/App/Login/Login.css);
+/* Clients */
+@import url(../components/App/Clients/Clients.css);
 /* popups */
 @import url(../components/App/HandleFeedbackPopup/HandleFeedbackPopup.css);
 @import url(../components/App/ImagePopup/ImagePopup.css);

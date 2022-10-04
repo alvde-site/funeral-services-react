@@ -2,21 +2,23 @@ import Client from "./Client/Client";
 
 function Clients(props) {
   return (
-    <section className="faq" id={"faq"}>
-      <h1 className="faq__title">Часто задаваемые вопросы</h1>
-      <p className="faq__subtitle">Ответы на ваши часто задаваемые вопросы</p>
-      <div className="faq__content">
-        <div className="faq__content-items">
-          <div className="faq__questions-wrapper">
-            <ul className="faq__questions">
+    <>
+      <header className="clients-header">
+        <h1 className="clients-header__title">Список клиентов</h1>
+      </header>
+      <main>
+        <section className="clients">
+          <div className="clients__content">
+            <ul className="clients__items">
               {props.clients.map((client, index) => {
                 return <Client client={client} key={index} />;
               })}
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </main>
+      <footer className="clients-footer"></footer>
+    </>
   );
 }
 
