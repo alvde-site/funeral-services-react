@@ -18,6 +18,7 @@ import PopupWithConfirmation from "./PopupWithConfirmation/PopupWithConfirmation
 import { useFormWithValidation } from "../../utils/formValidator";
 import { portfolioImages, questionsDataList } from "../../utils/constants";
 import ScrollUp from "./ScrollUp/ScrollUp";
+import EditClientPopup from "./EditClientPopup/EditClientPopup";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -29,6 +30,7 @@ function App() {
     useFormWithValidation();
   const [selectedImage, setSelectedImage] = useState({});
   const [clients, setClients] = useState([]);
+  const [isEditClientFormOpen, setIsEditClientFormOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -137,6 +139,10 @@ function App() {
     setSelectedImage(imageSrc);
   }
 
+  function handleOpenEditClientForm() {
+    setIsEditClientFormOpen(true);
+  }
+
   return (
     <div className="page">
       <Routes>
@@ -178,7 +184,7 @@ function App() {
           <Route
             exact
             path="/clients"
-            element={<Clients clients={clients} />}
+            element={<Clients clients={clients} onOpenEditClient={handleOpenEditClientForm}/>}
           />
         </Route>
       </Routes>
@@ -192,6 +198,7 @@ function App() {
         isValid={isValid}
         onCreateClient={handleCreateClient}
       />
+      <EditClientPopup isEditClientFormOpen={isEditClientFormOpen}/>
       <ImagePopup
         portfolioImage={selectedImage}
         onClose={closeAllPopups}
