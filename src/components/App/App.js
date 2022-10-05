@@ -115,6 +115,7 @@ function App() {
   function closeAllPopups() {
     setIsOpenFeedBack(false);
     setSelectedImage(false);
+    setIsEditClientFormOpen(false);
   }
 
   function handleCreateClient({ email, phone }) {
@@ -198,7 +199,7 @@ function App() {
         isValid={isValid}
         onCreateClient={handleCreateClient}
       />
-      <EditClientPopup isEditClientFormOpen={isEditClientFormOpen}/>
+      <EditClientPopup isEditClientFormOpen={isEditClientFormOpen} onClose={closeAllPopups}/>
       <ImagePopup
         portfolioImage={selectedImage}
         onClose={closeAllPopups}

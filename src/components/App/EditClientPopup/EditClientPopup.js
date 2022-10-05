@@ -4,11 +4,11 @@ function EditClientPopup(props) {
     // Запрещаем браузеру переходить по адресу формы
     e.preventDefault();
 
-    // let email = `${props.values["clientemail"] || ""}`;
-    // let phone = `${props.values["clientphone"] || ""}`;
-    // let status = `${props.values["clientstatus"] || ""}`;
-    // let description = `${props.values["clientdescription"] || ""}`;
-    // props.onEditClient({ email, phone, status, description });
+    let email = `${props.values["clientemail"] || ""}`;
+    let phone = `${props.values["clientphone"] || ""}`;
+    let status = `${props.values["clientstatus"] || ""}`;
+    let description = `${props.values["clientdescription"] || ""}`;
+    props.onEditClient({ email, phone, status, description });
   }
 
   function handleInputChange(e) {
@@ -54,11 +54,11 @@ function EditClientPopup(props) {
               minLength="2"
               maxLength="30"
               pattern="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}"
-              value={props.values["clientmail"] || ""}
+              // value={props.values["clientmail"] || ""}
               onChange={handleInputChange}
             />
             <span id="error-email" className="form__input-error">
-              {props.errors["clientmail"] || ""}
+              {/* {props.errors["clientmail"] || ""} */}
             </span>
           </label>
           <label htmlFor="clientphone" className="form__field">
@@ -70,11 +70,11 @@ function EditClientPopup(props) {
               placeholder="+375221112233"
               required
               pattern="\+375[0-9]{9}"
-              value={props.values["clientphone"] || ""}
+              // value={props.values["clientphone"] || ""}
               onChange={handleInputChange}
             />
             <span id="error-tel" className="form__input-error">
-              {props.errors["clientphone"] || ""}
+              {/* {props.errors["clientphone"] || ""} */}
             </span>
           </label>
           <label htmlFor="clientstatus" className="form__field">
@@ -85,11 +85,11 @@ function EditClientPopup(props) {
               name="clientstatus"
               required
               minLength="2"
-              value={props.values["clientstatus"] || ""}
+              // value={props.values["clientstatus"] || ""}
               onChange={handleInputChange}
             />
             <span id="error-descrioption" className="form__input-error">
-              {props.errors["clientstatus"] || ""}
+              {/* {props.errors["clientstatus"] || ""} */}
             </span>
           </label>
           <label htmlFor="clientdescription" className="form__field">
@@ -100,11 +100,11 @@ function EditClientPopup(props) {
               name="clientdescription"
               required
               minLength="2"
-              value={props.values["clientdescription"] || ""}
+              // value={props.values["clientdescription"] || ""}
               onChange={handleInputChange}
             />
             <span id="error-descrioption" className="form__input-error">
-              {props.errors["clientdescription"] || ""}
+              {/* {props.errors["clientdescription"] || ""} */}
             </span>
           </label>
           <button
