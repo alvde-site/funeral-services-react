@@ -10,6 +10,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-items: center;
+  grid-gap: 20px;
   align-items: center;
   position: relative;
   margin: 0 0 25px;
@@ -75,5 +76,11 @@
 
 .clients__description_active {
   max-height: 100px;
+}
+
+@media (max-width: 768px) {
+  .clients__data {
+    grid-template-columns: 1fr;
+  }
 }
 
