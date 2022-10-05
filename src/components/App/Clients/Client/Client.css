@@ -1,4 +1,4 @@
-.faq__question-content {
+.clients__item {
   background-color: #fff;
   border: 1px solid #dfdfdf;
   border-radius: 30px;
@@ -6,28 +6,31 @@
   padding: 13px 38px 13px 35px;
 }
 
-.faq__question {
-  display: flex;
-  justify-content: space-between;
+.clients__data {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  align-items: center;
   position: relative;
   margin: 0 0 25px;
 }
 
-.faq__question-text {
+.clients__data-item {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 28px;
   margin: 0;
-  transition: all 0.5s;
+  padding: 5px 15px;
 }
 
-.faq__question-text_active {
-  color: #AB0C00;
+.clients__data-item_type_new {
+  background-color: green;
+  color: #fff;
 }
 
-.faq__answer-button {
+.clients__more-button {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -42,12 +45,23 @@
   transition: all 0.5s;
 }
 
-.faq__answer-button_active {
+.clients__more-button_active {
   transform: rotate(270deg);
   color: #AB0C00;
 }
 
-.faq__answer {
+.clients__edit-button {
+  width: 40px;
+  height: 40px;
+  background: #000 url(../../../../images/svg/edit-avatar-button.svg)
+    center/20px no-repeat;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.2s;
+  border: none;
+}
+
+.clients__description {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -59,7 +73,7 @@
   max-height: 0px;
 }
 
-.faq__answer_active {
+.clients__description_active {
   max-height: 100px;
 }
 
