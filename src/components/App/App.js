@@ -144,9 +144,10 @@ function App() {
   function handleEditClient({ email, phone, status, description, id }) {
    // setIsLoading(true);
     MainApiSet.updateClient({ email, phone, status, description, id}, token)
-      .then((res) => {
+      .then((updatedClient) => {
         setIsEditClientFormOpen(false);
-        console.log(res)
+        const newClients = clients.map((c)=> c._id === updatedClient._id ? updatedClient : c)
+        setClients(newClients);
       })
       .catch((err) => {
         if (err) {
