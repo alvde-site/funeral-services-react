@@ -73,7 +73,7 @@ class MainApi {
   }
 
   deleteClient(clientId, token) {
-    return fetch(`${this._baseUrl}/movies/${clientId}`, {
+    return fetch(`${this._baseUrl}/clients/${clientId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

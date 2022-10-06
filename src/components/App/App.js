@@ -28,7 +28,7 @@ function App() {
   const [isEditClientFormOpen, setIsEditClientFormOpen] = useState(false);
   const [openedClientData, setOpenedClientData] = useState({});
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
-  const [isdeleteClient, setIsDeleteClient] = useState({});
+  const [isDeleteClient, setIsDeleteClient] = useState({});
 
   const navigate = useNavigate();
 
@@ -169,12 +169,13 @@ function App() {
     setIsDeleteClient(client);
   }
 
-  function handleConfirmCardDelete() {
+  function handleConfirmClientDelete() {
     //Удаление карточки через ConfirmPopup
     // setIsLoading(true);
-    MainApiSet.deleteClient(isdeleteClient._id)
-      .then(() => {
-        setClients((state) => state.filter((c) => c._id !== isdeleteClient._id));
+    MainApiSet.deleteClient(isDeleteClient._id, token)
+      .then((deletedClient) => {
+        setClients((state) => state.filter((c) => c._id !== deletedClient._id));
+        console.log(deletedClient)
         closeAllPopups();
       })
       .catch((err) => {
@@ -267,7 +268,7 @@ function App() {
       <PopupWithConfirmation
           isOpen={isConfirmationPopupOpen}
           onClose={closeAllPopups}
-          onConfirmDelete={handleConfirmCardDelete}
+          onConfirmDelete={handleConfirmClientDelete}
           // isLoading={isLoading}
         />
     </div>
