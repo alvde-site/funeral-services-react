@@ -16,6 +16,11 @@ function Client(props) {
     };
     props.onOpenEditClient(clientData);
   }
+
+  function handleDeleteClient() {
+    props.onConfirmation(props.client); //Настраивает открытие попапа подтверждения удаления
+  }
+
   return (
     <li className="clients__item">
       <div className="clients__data">
@@ -25,18 +30,22 @@ function Client(props) {
           {props.client.status}
         </p>
         <button
-          className={`clients__edit-button ${
-            isClientOpen ? "clienst__more-button_active" : ""
-          }`}
-          area-label="Комментарии к клиенту"
+          className="clients__edit-button"
+          area-label="Редактировать"
           type="button"
           onClick={handleOpenEditClient}
+        ></button>
+        <button
+          className="clients__remove-button"
+          area-label="Удалить"
+          type="button"
+          onClick={handleDeleteClient}
         ></button>
         <button
           className={`clients__more-button ${
             isClientOpen ? "clients__more-button_active" : ""
           }`}
-          area-label="Редактировать"
+          area-label="Комментарии к клиенту"
           type="button"
           onClick={handleClick}
         >

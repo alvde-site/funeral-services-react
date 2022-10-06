@@ -27,6 +27,8 @@ function App() {
   const [clients, setClients] = useState([]);
   const [isEditClientFormOpen, setIsEditClientFormOpen] = useState(false);
   const [openedClientData, setOpenedClientData] = useState({});
+  const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
+  const [isdeleteClient, setIsDeleteClient] = useState({});
 
   const navigate = useNavigate();
 
@@ -112,6 +114,7 @@ function App() {
     setIsOpenFeedBack(false);
     setSelectedImage(false);
     setIsEditClientFormOpen(false);
+    setIsConfirmationPopupOpen(false);
   }
 
   function handleCreateClient({ email, phone }) {
@@ -153,6 +156,28 @@ function App() {
         if (err) {
           // setSubmitError("При обновлении профиля произошла ошибка");
         }
+        console.log(`${err}`);
+      })
+      .finally(() => {
+        // setIsLoading(false);
+      });
+  }
+
+  function handlePopupWithConfirmation(client) {
+    //Настраивает открытие попапа подтверждения удаления
+    setIsConfirmationPopupOpen(true);
+    setIsDeleteClient(client);
+  }
+
+  function handleConfirmCardDelete() {
+    //Удаление карточки через ConfirmPopup
+    // setIsLoading(true);
+    MainApiSet.deleteClient(isdeleteClient._id)
+      .then(() => {
+        setClients((state) => state.filter((c) => c._id !== isdeleteClient._id));
+        closeAllPopups();
+      })
+      .catch((err) => {
         console.log(`${err}`);
       })
       .finally(() => {
@@ -209,6 +234,7 @@ function App() {
               <Clients
                 clients={clients}
                 onOpenEditClient={handleOpenEditClientForm}
+                onConfirmation={handlePopupWithConfirmation}
               />
             }
           />
@@ -238,7 +264,12 @@ function App() {
         onClose={closeAllPopups}
         name="image-viewing"
       />
-      <PopupWithConfirmation />
+      <PopupWithConfirmation
+          isOpen={isConfirmationPopupOpen}
+          onClose={closeAllPopups}
+          onConfirmDelete={handleConfirmCardDelete}
+          // isLoading={isLoading}
+        />
     </div>
   );
 }

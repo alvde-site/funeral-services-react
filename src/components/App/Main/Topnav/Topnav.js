@@ -92,7 +92,7 @@ function Topnav(props) {
               </a>
             </li>
             <li>
-              <a href="#id" className="topnav__link">
+              <a href="#about" className="topnav__link">
                 О компании
               </a>
             </li>

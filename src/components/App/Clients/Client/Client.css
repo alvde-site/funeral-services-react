@@ -8,7 +8,7 @@
 
 .clients__data {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   justify-items: center;
   grid-gap: 20px;
   align-items: center;
@@ -76,6 +76,12 @@
 
 .clients__description_active {
   max-height: 100px;
+}
+
+@media(max-width: 1200px) {
+  .clients__data {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
