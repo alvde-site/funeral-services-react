@@ -4,11 +4,12 @@ function EditClientPopup(props) {
     // Запрещаем браузеру переходить по адресу формы
     e.preventDefault();
 
-    // let email = `${props.values["clientemail"] || ""}`;
-    // let phone = `${props.values["clientphone"] || ""}`;
-    // let status = `${props.values["clientstatus"] || ""}`;
-    // let description = `${props.values["clientdescription"] || ""}`;
-    // props.onEditClient({ email, phone, status, description });
+    let email = `${props.values["clientemail"] || props.openedClientData.email}`;
+    let phone = `${props.values["clientphone"] || props.openedClientData.phone}`;
+    let status = `${props.values["clientstatus"] || props.openedClientData.status}`;
+    let description = `${props.values["clientdescription"] || props.openedClientData.description}`;
+    let id = props.openedClientData.id;
+    props.onEditClient({ email, phone, status, description, id });
   }
 
   function handleInputChange(e) {
@@ -42,19 +43,18 @@ function EditClientPopup(props) {
           onSubmit={handleSubmit}
         >
           <h2 className="form__title">Редактировать данные клиента</h2>
-          <label htmlFor="clientmail" className="form__field">
+          <label htmlFor="clientemail" className="form__field">
             <input
-              id="clientmail"
+              id="clientemail"
               type="email"
               className="form__input form__input_add_email"
-              name="clientmail"
+              name="clientemail"
               placeholder="Введите e-mail адрес"
               required
               minLength="2"
               maxLength="30"
               pattern="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}"
-              // value={props.values["clientmail"] || props.openedClientData.email}
-              value={props.values["clientmail"] || props.openedClientData.email || ""}
+              value={props.values["clientemail"] || props.openedClientData.email || ""}
               onChange={handleInputChange}
             />
             <span id="error-email" className="form__input-error">
@@ -71,7 +71,6 @@ function EditClientPopup(props) {
               required
               pattern="\+375[0-9]{9}"
               value={props.values["clientphone"] || props.openedClientData.phone || ""}
-              // value={props.values["clientphone"] || ""}
               onChange={handleInputChange}
             />
             <span id="error-tel" className="form__input-error">
@@ -86,7 +85,6 @@ function EditClientPopup(props) {
               name="clientstatus"
               required
               minLength="2"
-              // value={props.values["clientstatus"] || ""}
               value={props.values["clientstatus"] || props.openedClientData.status || ""}
               onChange={handleInputChange}
             />
@@ -102,7 +100,6 @@ function EditClientPopup(props) {
               name="clientdescription"
               required
               minLength="2"
-              // value={props.values["clientdescription"] || ""}
               value={props.values["clientdescription"] || props.openedClientData.description || ""}
               onChange={handleInputChange}
             />

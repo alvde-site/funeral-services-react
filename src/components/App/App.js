@@ -141,6 +141,24 @@ function App() {
     setOpenedClientData(clientData);
   }
 
+  function handleEditClient({ email, phone, status, description, id }) {
+   // setIsLoading(true);
+    MainApiSet.updateClient({ email, phone, status, description, id}, token)
+      .then((res) => {
+        setIsEditClientFormOpen(false);
+        console.log(res)
+      })
+      .catch((err) => {
+        if (err) {
+          // setSubmitError("При обновлении профиля произошла ошибка");
+        }
+        console.log(`${err}`);
+      })
+      .finally(() => {
+        // setIsLoading(false);
+      });
+  }
+
   return (
     <div className="page">
       <Routes>
@@ -211,6 +229,8 @@ function App() {
         openedClientData={openedClientData}
         onInputChange={handleChange}
         values={values}
+        isValid={isValid}
+        onEditClient={handleEditClient}
       />
       <ImagePopup
         portfolioImage={selectedImage}

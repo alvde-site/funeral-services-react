@@ -12,6 +12,7 @@ function Client(props) {
       phone: props.client.phone,
       status: props.client.status,
       description: props.client.description,
+      id: props.client._id,
     };
     props.onOpenEditClient(clientData);
   }

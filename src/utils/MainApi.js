@@ -54,6 +54,24 @@ class MainApi {
     }).then(this._checkResponse);
   }
 
+  updateClient({ email, phone, status, description, id }, token) {
+    return fetch(`${this._baseUrl}/clients/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        email,
+        phone,
+        status,
+        description,
+      }),
+    }).then(this._checkResponse);
+  }
+
   deleteClient(clientId, token) {
     return fetch(`${this._baseUrl}/movies/${clientId}`, {
       method: "DELETE",
