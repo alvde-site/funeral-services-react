@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Navigate,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
@@ -31,6 +26,7 @@ function App() {
   const [selectedImage, setSelectedImage] = useState({});
   const [clients, setClients] = useState([]);
   const [isEditClientFormOpen, setIsEditClientFormOpen] = useState(false);
+  const [openedClientData, setOpenedClientData] = useState({});
 
   const navigate = useNavigate();
 
@@ -140,8 +136,9 @@ function App() {
     setSelectedImage(imageSrc);
   }
 
-  function handleOpenEditClientForm() {
+  function handleOpenEditClientForm(clientData) {
     setIsEditClientFormOpen(true);
+    setOpenedClientData(clientData);
   }
 
   return (
@@ -169,23 +166,32 @@ function App() {
         <Route
           exact
           path="/signin"
-          element={!loggedIn ?
-                <Login
-                  onInputChange={handleChange}
-                  values={values}
-                  errors={errors}
-                  isValid={isValid}
-                  onLogin={handleLogin}
-                  // submitError={submitError}
-                  // isLoading={isLoading}
-                />
-              : <Navigate to="/clients"/> }
+          element={
+            !loggedIn ? (
+              <Login
+                onInputChange={handleChange}
+                values={values}
+                errors={errors}
+                isValid={isValid}
+                onLogin={handleLogin}
+                // submitError={submitError}
+                // isLoading={isLoading}
+              />
+            ) : (
+              <Navigate to="/clients" />
+            )
+          }
         ></Route>
-        <Route element={<ProtectedRoute loggedIn={loggedIn}/>}>
+        <Route element={<ProtectedRoute loggedIn={loggedIn} />}>
           <Route
             exact
             path="/clients"
-            element={<Clients clients={clients} onOpenEditClient={handleOpenEditClientForm}/>}
+            element={
+              <Clients
+                clients={clients}
+                onOpenEditClient={handleOpenEditClientForm}
+              />
+            }
           />
         </Route>
       </Routes>
@@ -199,7 +205,13 @@ function App() {
         isValid={isValid}
         onCreateClient={handleCreateClient}
       />
-      <EditClientPopup isEditClientFormOpen={isEditClientFormOpen} onClose={closeAllPopups}/>
+      <EditClientPopup
+        isEditClientFormOpen={isEditClientFormOpen}
+        onClose={closeAllPopups}
+        openedClientData={openedClientData}
+        onInputChange={handleChange}
+        values={values}
+      />
       <ImagePopup
         portfolioImage={selectedImage}
         onClose={closeAllPopups}

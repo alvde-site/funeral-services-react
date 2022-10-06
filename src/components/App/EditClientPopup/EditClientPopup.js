@@ -4,16 +4,15 @@ function EditClientPopup(props) {
     // Запрещаем браузеру переходить по адресу формы
     e.preventDefault();
 
-    let email = `${props.values["clientemail"] || ""}`;
-    let phone = `${props.values["clientphone"] || ""}`;
-    let status = `${props.values["clientstatus"] || ""}`;
-    let description = `${props.values["clientdescription"] || ""}`;
-    props.onEditClient({ email, phone, status, description });
+    // let email = `${props.values["clientemail"] || ""}`;
+    // let phone = `${props.values["clientphone"] || ""}`;
+    // let status = `${props.values["clientstatus"] || ""}`;
+    // let description = `${props.values["clientdescription"] || ""}`;
+    // props.onEditClient({ email, phone, status, description });
   }
 
   function handleInputChange(e) {
     props.onInputChange(e);
-    // props.onSameValue(e);
   }
 
   function handleClosePopup() {
@@ -54,7 +53,8 @@ function EditClientPopup(props) {
               minLength="2"
               maxLength="30"
               pattern="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}"
-              // value={props.values["clientmail"] || ""}
+              // value={props.values["clientmail"] || props.openedClientData.email}
+              value={props.values["clientmail"] || props.openedClientData.email || ""}
               onChange={handleInputChange}
             />
             <span id="error-email" className="form__input-error">
@@ -70,6 +70,7 @@ function EditClientPopup(props) {
               placeholder="+375221112233"
               required
               pattern="\+375[0-9]{9}"
+              value={props.values["clientphone"] || props.openedClientData.phone || ""}
               // value={props.values["clientphone"] || ""}
               onChange={handleInputChange}
             />
@@ -86,6 +87,7 @@ function EditClientPopup(props) {
               required
               minLength="2"
               // value={props.values["clientstatus"] || ""}
+              value={props.values["clientstatus"] || props.openedClientData.status || ""}
               onChange={handleInputChange}
             />
             <span id="error-descrioption" className="form__input-error">
@@ -101,6 +103,7 @@ function EditClientPopup(props) {
               required
               minLength="2"
               // value={props.values["clientdescription"] || ""}
+              value={props.values["clientdescription"] || props.openedClientData.description || ""}
               onChange={handleInputChange}
             />
             <span id="error-descrioption" className="form__input-error">
