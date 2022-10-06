@@ -186,6 +186,25 @@ function App() {
       });
   }
 
+  function handleSignout() {
+     // setIsLoading(true);
+      MainApiSet.signout(token)
+        .then(() => {
+          setLoggedIn(false);
+          localStorage.removeItem("token");
+          navigate("/");
+        })
+        .catch((err) => {
+          if (err) {
+            // setSubmitError("Что-то пошло не так");
+          }
+          console.log(`${err}`);
+        })
+        .finally(() => {
+         // setIsLoading(false);
+        });
+  }
+
   return (
     <div className="page">
       <Routes>
@@ -236,6 +255,7 @@ function App() {
                 clients={clients}
                 onOpenEditClient={handleOpenEditClientForm}
                 onConfirmation={handlePopupWithConfirmation}
+                onSignout={handleSignout}
               />
             }
           />

@@ -5,6 +5,8 @@ export const topnav = document.querySelector(".topnav");
 export const menu = document.querySelector(".topnav__links");
 export const topnavContacts = document.querySelector(".topnav__contacts");
 export const scrollUpButton = document.queryCommandValue(".scrollup");
+export const DeletedToken = 'Токен удален';
+export const SomethingWrong = 'Что-то пошло не так';
 export const formData = {
   formSelector: ".form",
   inputSelector: ".form__input",

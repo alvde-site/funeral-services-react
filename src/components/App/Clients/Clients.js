@@ -1,6 +1,9 @@
 import Client from "./Client/Client";
 
 function Clients(props) {
+  function handleSignout() {
+    props.onSignout();
+  }
   return (
     <>
       <header className="clients-header">
@@ -11,13 +14,28 @@ function Clients(props) {
           <div className="clients__content">
             <ul className="clients__items">
               {props.clients.map((client, index) => {
-                return <Client client={client} key={index} onOpenEditClient={props.onOpenEditClient} onConfirmation={props.onConfirmation}/>;
+                return (
+                  <Client
+                    client={client}
+                    key={index}
+                    onOpenEditClient={props.onOpenEditClient}
+                    onConfirmation={props.onConfirmation}
+                  />
+                );
               })}
             </ul>
           </div>
         </section>
       </main>
-      <footer className="clients-footer"></footer>
+      <footer className="clients__footer">
+        <button
+          className="clients__logout"
+          type="button"
+          onClick={handleSignout}
+        >
+          Выйти
+        </button>
+      </footer>
     </>
   );
 }

@@ -67,37 +67,37 @@ function Topnav(props) {
             }`}
           >
             <li>
-              <a href="/#services" className="topnav__link">
+              <a href="/#services" className="topnav__link" onClick={handleToggleBurger}>
                 Каталог
               </a>
             </li>
             <li>
-              <a href="/#advantages" className="topnav__link">
+              <a href="/#advantages" className="topnav__link" onClick={handleToggleBurger}>
                 Преимущества
               </a>
             </li>
             <li>
-              <a href="/#portfolio" className="topnav__link">
+              <a href="/#portfolio" className="topnav__link" onClick={handleToggleBurger}>
                 Портфолио
               </a>
             </li>
             <li>
-              <a href="/#working" className="topnav__link">
+              <a href="/#working" className="topnav__link" onClick={handleToggleBurger}>
                 Этапы работы
               </a>
             </li>
             <li>
-              <a href="/#faq" className="topnav__link">
+              <a href="/#faq" className="topnav__link" onClick={handleToggleBurger}>
                 Вопрос-ответ
               </a>
             </li>
             <li>
-              <a href="#about" className="topnav__link">
+              <a href="#about" className="topnav__link" onClick={handleToggleBurger}>
                 О компании
               </a>
             </li>
             <li>
-              <a href="#id" className="topnav__link">
+              <a href="#id" className="topnav__link" onClick={handleToggleBurger}>
                 Контакты
               </a>
             </li>
