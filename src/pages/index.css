@@ -29,5 +29,6 @@
 /* popups */
 @import url(../components/App/HandleFeedbackPopup/HandleFeedbackPopup.css);
 @import url(../components/App/ImagePopup/ImagePopup.css);
+@import url(../components/InfoTooltip/InfoTooltip.css);
 /* Старница не найдена */
 @import url(../components/App/PageNotFound/PageNotFound.css);

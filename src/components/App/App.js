@@ -127,6 +127,7 @@ function App() {
     setSelectedImage(false);
     setIsEditClientFormOpen(false);
     setIsConfirmationPopupOpen(false);
+    setIsInfoTooltipPopupOpen(false);
   }
 
   function handleCreateClient({ email, phone }) {
@@ -135,10 +136,20 @@ function App() {
         console.log(res);
         closeAllPopups();
         setIsInfoTooltipPopupOpen(true);
+        setIsInfoTooltipData({
+          image: success,
+          title: "Спасибо за заявку",
+          subtitle: "Менеджен обработает её в течение 30 минут и перезвонит!"
+        });
       })
       .catch((err) => {
         if (err === "Ошибка 401") {
           setSubmitError("Неверный логин или пароль");
+          setIsInfoTooltipData({
+            image: fail,
+            title: "Что-то пошло не так",
+            subtitle: "Попробуйте еще раз"
+          });
         }
         console.log("err", err);
       })
@@ -166,19 +177,10 @@ function App() {
           c._id === updatedClient._id ? updatedClient : c
         );
         setClients(newClients);
-        setIsInfoTooltipData({
-          image: success,
-          title: "Спасибо за заявку",
-          subtitle: "Менеджен обработает её в течение 30 минут и перезвонит!"
-        });
       })
       .catch((err) => {
         if (err) {
-          setIsInfoTooltipData({
-            image: fail,
-            title: "Что-то пошло не так...",
-            subtitle: err.message
-          });
+          setSubmitError("При обновлении профиля произошла ошибка");
         }
         console.log(`${err}`);
       })
