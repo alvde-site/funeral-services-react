@@ -57,7 +57,7 @@ function App() {
           .then((res) => {
             if (res) {
               setLoggedIn(true);
-              setClients(res);
+              setClients(res.reverse());
               setSubmitError("");
               // setIsInvalidToken(false);
             }
