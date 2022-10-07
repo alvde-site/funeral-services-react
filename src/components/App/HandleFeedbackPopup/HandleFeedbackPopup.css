@@ -90,6 +90,18 @@
   color: #6c757d;
 }
 
+.form__input_type_status {
+ appearance: none;
+ background-image: url(../../../images/select-arrow.png);
+ background-position: calc(100% - 15px) center;
+ background-repeat: no-repeat;
+ background-size: 15px;
+}
+
+.form__option {
+  width: 50px;
+}
+
 .form__input_type_error {
   border-bottom: 1px solid #f00;
 }
