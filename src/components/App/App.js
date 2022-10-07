@@ -132,8 +132,8 @@ function App() {
 
   function handleCreateClient({ email, phone }) {
     MainApiSet.createClient({ email, phone })
-      .then((res) => {
-        console.log(res);
+      .then((newClient) => {
+        setClients((clients)=> [newClient, ...clients])
         closeAllPopups();
         setIsInfoTooltipPopupOpen(true);
         setIsInfoTooltipData({
