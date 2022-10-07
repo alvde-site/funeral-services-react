@@ -29,7 +29,7 @@ function App() {
   const [openedClientData, setOpenedClientData] = useState({});
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
   const [isDeleteClient, setIsDeleteClient] = useState({});
-
+  const [submitError, setSubmitError] = useState("");
   const navigate = useNavigate();
 
   function tokenCheck() {
@@ -68,7 +68,7 @@ function App() {
 
   function handleLogin({ password, email }) {
     // setIsLoading(true);
-    // setSubmitError("");
+    setSubmitError("");
     MainApiSet.login({ email, password })
       .then((res) => {
         if (res.message) {
@@ -86,14 +86,14 @@ function App() {
       })
       .then((res) => {
         if (res.token) {
-          // setSubmitError("");
+          setSubmitError("");
           setLoggedIn(true);
           navigate("/clients");
         }
       })
       .catch((err) => {
         if (err === "Ошибка 401") {
-          // setSubmitError("Неверный логин или пароль");
+          setSubmitError("Неверный логин или пароль");
         }
         console.log("err", err);
       })
@@ -238,7 +238,7 @@ function App() {
                 errors={errors}
                 isValid={isValid}
                 onLogin={handleLogin}
-                // submitError={submitError}
+                submitError={submitError}
                 // isLoading={isLoading}
               />
             ) : (

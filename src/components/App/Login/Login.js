@@ -89,7 +89,6 @@ function Login({
           >
             {submitError}
           </span>
-
           <button
             className={`auth-form__submit ${
               !isValid && "auth-form__submit_disable"
