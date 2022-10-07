@@ -21,7 +21,7 @@ function App() {
   const [token, setToken] = useState("");
   const [isToggleBurger, setIsToggleBurger] = useState(false);
   const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
-  const { values, checks, handleChange, errors, isValid /*setIsValid*/ } =
+  const { values, setValues, checks, handleChange, errors, isValid /*setIsValid*/ } =
     useFormWithValidation();
   const [selectedImage, setSelectedImage] = useState({});
   const [clients, setClients] = useState([]);
@@ -278,6 +278,7 @@ function App() {
         openedClientData={openedClientData}
         onInputChange={handleChange}
         values={values}
+        setValues={setValues}
         errors={errors}
         isValid={isValid}
         isLoading={isLoading}

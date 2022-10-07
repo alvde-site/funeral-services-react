@@ -10,6 +10,7 @@ function EditClientPopup(props) {
     let description = `${props.values["clientdescription"] || props.openedClientData.description}`;
     let id = props.openedClientData.id;
     props.onEditClient({ email, phone, status, description, id });
+    props.setValues({});
   }
 
   function handleInputChange(e) {
