@@ -24,7 +24,7 @@ function PopupWithConfirmation(props) {
         >
           <h2 className="form__title">Удалить?</h2>
           <button className="form__submit" type="submit">
-            {props.isLoading ? props.buttonLoadingText : "Да"}
+            {props.isLoading ? "Удаление..." : "Да"}
           </button>
         </form>
       </div>

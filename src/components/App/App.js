@@ -30,6 +30,7 @@ function App() {
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
   const [isDeleteClient, setIsDeleteClient] = useState({});
   const [submitError, setSubmitError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   function tokenCheck() {
@@ -46,14 +47,14 @@ function App() {
             if (res) {
               setLoggedIn(true);
               setClients(res);
-              // setSubmitError("");
+              setSubmitError("");
               // setIsInvalidToken(false);
             }
           })
           .catch((err) => {
             if (err === "Ошибка 401") {
               setLoggedIn(false);
-              // setSubmitError("Неверный логин или пароль");
+              setSubmitError("Неверный логин или пароль");
               // setIsInvalidToken(true);
             }
             console.log(`${err}`);
@@ -67,17 +68,17 @@ function App() {
   }, [loggedIn]);
 
   function handleLogin({ password, email }) {
-    // setIsLoading(true);
+    setIsLoading(true);
     setSubmitError("");
     MainApiSet.login({ email, password })
       .then((res) => {
         if (res.message) {
-          // setSubmitError(res.message);
+          setSubmitError(res.message);
           return;
         }
         if (res.token) {
           localStorage.setItem("token", res.token);
-          // setToken(res.token);
+          setToken(res.token);
           //  setIsInvalidToken(false);
           return res;
         } else {
@@ -98,7 +99,7 @@ function App() {
         console.log("err", err);
       })
       .finally(() => {
-        // setIsLoading(false);
+        setIsLoading(false);
       });
   }
 
@@ -125,12 +126,12 @@ function App() {
       })
       .catch((err) => {
         if (err === "Ошибка 401") {
-          // setSubmitError("Неверный логин или пароль");
+          setSubmitError("Неверный логин или пароль");
         }
         console.log("err", err);
       })
       .finally(() => {
-        // setIsLoading(false);
+        setIsLoading(false);
       });
   }
 
@@ -145,7 +146,7 @@ function App() {
   }
 
   function handleEditClient({ email, phone, status, description, id }) {
-   // setIsLoading(true);
+   setIsLoading(true);
     MainApiSet.updateClient({ email, phone, status, description, id}, token)
       .then((updatedClient) => {
         setIsEditClientFormOpen(false);
@@ -154,12 +155,12 @@ function App() {
       })
       .catch((err) => {
         if (err) {
-          // setSubmitError("При обновлении профиля произошла ошибка");
+          setSubmitError("При обновлении профиля произошла ошибка");
         }
         console.log(`${err}`);
       })
       .finally(() => {
-        // setIsLoading(false);
+        setIsLoading(false);
       });
   }
 
@@ -171,7 +172,7 @@ function App() {
 
   function handleConfirmClientDelete() {
     //Удаление карточки через ConfirmPopup
-    // setIsLoading(true);
+    setIsLoading(true);
     MainApiSet.deleteClient(isDeleteClient._id, token)
       .then((deletedClient) => {
         setClients((state) => state.filter((c) => c._id !== deletedClient._id));
@@ -182,12 +183,12 @@ function App() {
         console.log(`${err}`);
       })
       .finally(() => {
-        // setIsLoading(false);
+        setIsLoading(false);
       });
   }
 
   function handleSignout() {
-     // setIsLoading(true);
+     setIsLoading(true);
       MainApiSet.signout(token)
         .then(() => {
           setLoggedIn(false);
@@ -196,12 +197,12 @@ function App() {
         })
         .catch((err) => {
           if (err) {
-            // setSubmitError("Что-то пошло не так");
+            setSubmitError("Что-то пошло не так");
           }
           console.log(`${err}`);
         })
         .finally(() => {
-         // setIsLoading(false);
+         setIsLoading(false);
         });
   }
 
@@ -239,7 +240,7 @@ function App() {
                 isValid={isValid}
                 onLogin={handleLogin}
                 submitError={submitError}
-                // isLoading={isLoading}
+                isLoading={isLoading}
               />
             ) : (
               <Navigate to="/clients" />
@@ -277,7 +278,9 @@ function App() {
         openedClientData={openedClientData}
         onInputChange={handleChange}
         values={values}
+        errors={errors}
         isValid={isValid}
+        isLoading={isLoading}
         onEditClient={handleEditClient}
       />
       <ImagePopup
@@ -289,7 +292,7 @@ function App() {
           isOpen={isConfirmationPopupOpen}
           onClose={closeAllPopups}
           onConfirmDelete={handleConfirmClientDelete}
-          // isLoading={isLoading}
+          isLoading={isLoading}
         />
     </div>
   );

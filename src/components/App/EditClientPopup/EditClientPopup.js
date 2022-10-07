@@ -58,7 +58,7 @@ function EditClientPopup(props) {
               onChange={handleInputChange}
             />
             <span id="error-email" className="form__input-error">
-              {/* {props.errors["clientmail"] || ""} */}
+              {props.errors["clientmail"] || ""}
             </span>
           </label>
           <label htmlFor="clientphone" className="form__field">
@@ -74,7 +74,7 @@ function EditClientPopup(props) {
               onChange={handleInputChange}
             />
             <span id="error-tel" className="form__input-error">
-              {/* {props.errors["clientphone"] || ""} */}
+              {props.errors["clientphone"] || ""}
             </span>
           </label>
           <label htmlFor="clientstatus" className="form__field">
@@ -89,7 +89,7 @@ function EditClientPopup(props) {
               onChange={handleInputChange}
             />
             <span id="error-descrioption" className="form__input-error">
-              {/* {props.errors["clientstatus"] || ""} */}
+              {props.errors["clientstatus"] || ""}
             </span>
           </label>
           <label htmlFor="clientdescription" className="form__field">
@@ -104,7 +104,7 @@ function EditClientPopup(props) {
               onChange={handleInputChange}
             />
             <span id="error-descrioption" className="form__input-error">
-              {/* {props.errors["clientdescription"] || ""} */}
+              {props.errors["clientdescription"] || ""}
             </span>
           </label>
           <button
@@ -114,16 +114,7 @@ function EditClientPopup(props) {
             type="submit"
             disabled={!props.isValid}
           >
-            <span
-              className={`form__submit-text ${
-                props.isValid ? "form__submit-text_hover" : ""
-              }`}
-            >
-              <span className="form__submit-icon form__submit-icon_type_hidden">
-                &#10148;
-              </span>
-              <span className="form__submit-icon">Сохранить</span>
-            </span>
+            {props.isLoading ? "Сохранение..." : "Сохранить"}
           </button>
         </form>
       </div>
