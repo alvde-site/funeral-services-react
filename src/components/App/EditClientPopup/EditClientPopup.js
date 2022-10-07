@@ -111,21 +111,21 @@ function EditClientPopup(props) {
               {props.errors["clientstatus"] || ""}
             </span>
           </label>
-          <label htmlFor="clientdescription" className="form__field">
-            <input
+          <label htmlFor="clientdescription" className="form__field form__field_type_description">
+            <textarea
               id="clientdescription"
               type="text"
-              className="form__input form__input_add_link"
+              className="form__input form__input_type_description"
               name="clientdescription"
               required
               minLength="2"
+              onChange={handleInputChange}
               value={
                 props.values["clientdescription"] ||
                 props.openedClientData.description ||
                 ""
               }
-              onChange={handleInputChange}
-            />
+            ></textarea>
             <span id="error-descrioption" className="form__input-error">
               {props.errors["clientdescription"] || ""}
             </span>

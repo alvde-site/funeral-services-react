@@ -71,6 +71,10 @@
   margin: 0 0 30px;
 }
 
+.form__field_type_description {
+  min-height: 200px;
+}
+
 .form__input {
   box-sizing: border-box;
   width: 100%;
@@ -98,8 +102,8 @@
  background-size: 15px;
 }
 
-.form__option {
-  width: 50px;
+.form__input_type_description {
+  min-height: 100%;
 }
 
 .form__input_type_error {
