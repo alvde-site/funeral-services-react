@@ -21,12 +21,25 @@ function Client(props) {
     props.onConfirmation(props.client); //Настраивает открытие попапа подтверждения удаления
   }
 
+  const statusColor = (status) => {
+    switch(status) {
+      case "Новый клиент":
+        return "clients__data-item_type_new";
+      case "В работе":
+        return "clients__data-item_type_working";
+      case "Заказ завершен":
+        return "clients__data-item_type_end";
+      default:
+        return "clients__data-item_type_new";
+    }
+  }
+
   return (
     <li className="clients__item">
       <div className="clients__data">
         <p className="clients__data-item">{props.client.email}</p>
         <p className="clients__data-item">{props.client.phone}</p>
-        <p className="clients__data-item clients__data-item_type_new">
+        <p className={`clients__data-item ${statusColor(props.client.status)}`}>
           {props.client.status}
         </p>
         <button

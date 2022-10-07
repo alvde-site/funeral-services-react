@@ -27,8 +27,18 @@
 }
 
 .clients__data-item_type_new {
-  background-color: green;
+  background-color: red;
   color: #fff;
+}
+
+.clients__data-item_type_working {
+  background-color: lightgreen;
+  color: #000;
+}
+
+.clients__data-item_type_end {
+  background-color: lightgray;
+  color: #777;
 }
 
 .clients__edit-button {
