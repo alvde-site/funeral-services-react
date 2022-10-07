@@ -17,7 +17,7 @@ function Clients(props) {
                 return (
                   <Client
                     client={client}
-                    key={index}
+                    key={client._id}
                     onOpenEditClient={props.onOpenEditClient}
                     onConfirmation={props.onConfirmation}
                   />
