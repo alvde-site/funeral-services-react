@@ -59,20 +59,24 @@ function App() {
               setLoggedIn(true);
               setClients(res.reverse());
               setSubmitError("");
-              // setIsInvalidToken(false);
             }
           })
           .catch((err) => {
             if (err === "Ошибка 401") {
               setLoggedIn(false);
               setSubmitError("Неверный логин или пароль");
-              // setIsInvalidToken(true);
             }
             console.log(`${err}`);
           });
       }
     }
   }
+
+  useEffect(() => {
+    if(loggedIn) {
+      navigate("/clients")
+    }
+  }, [loggedIn, navigate])
 
   useEffect(() => {
     tokenCheck();
