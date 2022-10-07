@@ -101,6 +101,11 @@ function EditClientPopup(props) {
               required
               minLength="2"
               onChange={handleInputChange}
+              value={
+                props.values["clientstatus"] ||
+                props.openedClientData.status ||
+                ""
+              }
             >
               <option value="Новый клиент">Новый клиент</option>
               <option value="В работе">В работе</option>
