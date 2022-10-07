@@ -181,6 +181,8 @@ function App() {
           c._id === updatedClient._id ? updatedClient : c
         );
         setClients(newClients);
+        setValues({});
+        setOpenedClientData({});
       })
       .catch((err) => {
         if (err) {
@@ -336,7 +338,6 @@ function App() {
         openedClientData={openedClientData}
         onInputChange={handleEditClientInputChange}
         values={values}
-        setValues={setValues}
         errors={errors}
         isValid={isValid}
         isLoading={isLoading}
