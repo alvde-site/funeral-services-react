@@ -14,6 +14,9 @@ import { useFormWithValidation } from "../../utils/formValidator";
 import { portfolioImages, questionsDataList } from "../../utils/constants";
 import ScrollUp from "./ScrollUp/ScrollUp";
 import EditClientPopup from "./EditClientPopup/EditClientPopup";
+import InfoTooltip from "../InfoTooltip/InfoTooltip";
+import success from "../../images/success.png";
+import fail from "../../images/fail.png";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -21,8 +24,14 @@ function App() {
   const [token, setToken] = useState("");
   const [isToggleBurger, setIsToggleBurger] = useState(false);
   const [isOpenFeedBack, setIsOpenFeedBack] = useState(false);
-  const { values, setValues, checks, handleChange, errors, isValid /*setIsValid*/ } =
-    useFormWithValidation();
+  const {
+    values,
+    setValues,
+    checks,
+    handleChange,
+    errors,
+    isValid /*setIsValid*/,
+  } = useFormWithValidation();
   const [selectedImage, setSelectedImage] = useState({});
   const [clients, setClients] = useState([]);
   const [isEditClientFormOpen, setIsEditClientFormOpen] = useState(false);
@@ -31,6 +40,8 @@ function App() {
   const [isDeleteClient, setIsDeleteClient] = useState({});
   const [submitError, setSubmitError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = useState(false);
+  const [isInfoTooltipData, setIsInfoTooltipData] = useState({});
   const navigate = useNavigate();
 
   function tokenCheck() {
@@ -123,6 +134,7 @@ function App() {
       .then((res) => {
         console.log(res);
         closeAllPopups();
+        setIsInfoTooltipPopupOpen(true);
       })
       .catch((err) => {
         if (err === "Ошибка 401") {
@@ -146,16 +158,27 @@ function App() {
   }
 
   function handleEditClient({ email, phone, status, description, id }) {
-   setIsLoading(true);
-    MainApiSet.updateClient({ email, phone, status, description, id}, token)
+    setIsLoading(true);
+    MainApiSet.updateClient({ email, phone, status, description, id }, token)
       .then((updatedClient) => {
         setIsEditClientFormOpen(false);
-        const newClients = clients.map((c)=> c._id === updatedClient._id ? updatedClient : c)
+        const newClients = clients.map((c) =>
+          c._id === updatedClient._id ? updatedClient : c
+        );
         setClients(newClients);
+        setIsInfoTooltipData({
+          image: success,
+          title: "Спасибо за заявку",
+          subtitle: "Менеджен обработает её в течение 30 минут и перезвонит!"
+        });
       })
       .catch((err) => {
         if (err) {
-          setSubmitError("При обновлении профиля произошла ошибка");
+          setIsInfoTooltipData({
+            image: fail,
+            title: "Что-то пошло не так...",
+            subtitle: err.message
+          });
         }
         console.log(`${err}`);
       })
@@ -176,7 +199,7 @@ function App() {
     MainApiSet.deleteClient(isDeleteClient._id, token)
       .then((deletedClient) => {
         setClients((state) => state.filter((c) => c._id !== deletedClient._id));
-        console.log(deletedClient)
+        console.log(deletedClient);
         closeAllPopups();
       })
       .catch((err) => {
@@ -188,22 +211,22 @@ function App() {
   }
 
   function handleSignout() {
-     setIsLoading(true);
-      MainApiSet.signout(token)
-        .then(() => {
-          setLoggedIn(false);
-          localStorage.removeItem("token");
-          navigate("/");
-        })
-        .catch((err) => {
-          if (err) {
-            setSubmitError("Что-то пошло не так");
-          }
-          console.log(`${err}`);
-        })
-        .finally(() => {
-         setIsLoading(false);
-        });
+    setIsLoading(true);
+    MainApiSet.signout(token)
+      .then(() => {
+        setLoggedIn(false);
+        localStorage.removeItem("token");
+        navigate("/");
+      })
+      .catch((err) => {
+        if (err) {
+          setSubmitError("Что-то пошло не так");
+        }
+        console.log(`${err}`);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   return (
@@ -290,11 +313,17 @@ function App() {
         name="image-viewing"
       />
       <PopupWithConfirmation
-          isOpen={isConfirmationPopupOpen}
-          onClose={closeAllPopups}
-          onConfirmDelete={handleConfirmClientDelete}
-          isLoading={isLoading}
-        />
+        isOpen={isConfirmationPopupOpen}
+        onClose={closeAllPopups}
+        onConfirmDelete={handleConfirmClientDelete}
+        isLoading={isLoading}
+      />
+      <InfoTooltip
+        name="infotooltip"
+        isOpen={isInfoTooltipPopupOpen}
+        isInfoData={isInfoTooltipData}
+        onClose={closeAllPopups}
+      />
     </div>
   );
 }
