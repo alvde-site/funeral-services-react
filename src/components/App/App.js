@@ -73,10 +73,10 @@ function App() {
   }
 
   useEffect(() => {
-    if(loggedIn) {
-      navigate("/clients")
+    if (loggedIn) {
+      navigate("/clients");
     }
-  }, [loggedIn, navigate])
+  }, [loggedIn, navigate]);
 
   useEffect(() => {
     tokenCheck();
@@ -137,13 +137,13 @@ function App() {
   function handleCreateClient({ email, phone }) {
     MainApiSet.createClient({ email, phone })
       .then((newClient) => {
-        setClients((clients)=> [newClient, ...clients])
+        setClients((clients) => [newClient, ...clients]);
         closeAllPopups();
         setIsInfoTooltipPopupOpen(true);
         setIsInfoTooltipData({
           image: success,
           title: "Спасибо за заявку",
-          subtitle: "Менеджен обработает её в течение 30 минут и перезвонит!"
+          subtitle: "Менеджен обработает её в течение 30 минут и перезвонит!",
         });
       })
       .catch((err) => {
@@ -152,7 +152,7 @@ function App() {
           setIsInfoTooltipData({
             image: fail,
             title: "Что-то пошло не так",
-            subtitle: "Попробуйте еще раз"
+            subtitle: "Попробуйте еще раз",
           });
         }
         console.log("err", err);
@@ -235,6 +235,35 @@ function App() {
       });
   }
 
+  function handleEditClientInputChange(e) {
+    handleChange(e);
+    if (e.target.value === "") {
+      handleEmptyEditClentValue(e.target.id);
+    }
+  }
+
+  function handleEmptyEditClentValue(id) {
+    switch (id) {
+      case "clientemail":
+        setOpenedClientData((state) => {
+          return { ...state, email: "" };
+        });
+        break;
+      case "clientphone":
+        setOpenedClientData((state) => {
+          return { ...state, phone: "" };
+        });
+        break;
+      case "clientdescription":
+        setOpenedClientData((state) => {
+          return { ...state, description: "" };
+        });
+        break;
+      default:
+        setOpenedClientData(openedClientData);
+    }
+  }
+
   return (
     <div className="page">
       <Routes>
@@ -305,7 +334,7 @@ function App() {
         isEditClientFormOpen={isEditClientFormOpen}
         onClose={closeAllPopups}
         openedClientData={openedClientData}
-        onInputChange={handleChange}
+        onInputChange={handleEditClientInputChange}
         values={values}
         setValues={setValues}
         errors={errors}
