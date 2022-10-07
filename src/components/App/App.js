@@ -118,7 +118,7 @@ function App() {
   }
 
   function handleCreateClient({ email, phone }) {
-    MainApiSet.createClient({ email, phone }, token)
+    MainApiSet.createClient({ email, phone })
       .then((res) => {
         console.log(res);
         closeAllPopups();

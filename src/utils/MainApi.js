@@ -38,13 +38,12 @@ class MainApi {
     }).then(this._checkResponse);
   }
 
-  createClient({ email, phone }, token) {
-    return fetch(`${this._baseUrl}/clients`, {
+  createClient({ email, phone }) {
+    return fetch(`${this._baseUrl}/feedback`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: `Bearer ${token}`,
       },
       credentials: "include",
       body: JSON.stringify({
