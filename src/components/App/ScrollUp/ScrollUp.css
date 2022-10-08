@@ -4,23 +4,15 @@
   display: block;
   opacity: 0;
   text-decoration: none;
-  transform: rotate(90deg);
-  color: #fff;
+  transform: rotate(180deg);
   bottom: 100px;
   right: 30px;
-  text-align: center;
-  font-size: 36px;
-  line-height: 22px;
   width: 36px;
   height: 36px;
-  background-color: #333;
-  border-radius: 3px;
+  background: #fff url(../../../images/select-arrow.png) center/contain no-repeat;
+  border-radius: 50%;
   padding: 8px;
   transition: all 1s;
-}
-
-.scrollup:hover {
-  background-color: #444;
 }
 
 .scrollup_active {
