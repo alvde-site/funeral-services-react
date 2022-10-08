@@ -54,11 +54,6 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="/#footer" className="footer__link">
-                Контакты
-              </a>
-            </li>
-            <li>
               <Link to="/signin" className="footer__link">
                 Войти
               </Link>
