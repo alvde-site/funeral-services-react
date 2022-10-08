@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id={"footer"}>
       <div className="footer__content">
         <ul className="footer__contacts">
           <li className="footer__item">
@@ -34,11 +34,6 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="/#advantages" className="footer__link">
-                Преимущества
-              </a>
-            </li>
-            <li>
               <a href="/#portfolio" className="footer__link">
                 Портфолио
               </a>
@@ -54,12 +49,12 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="#id" className="footer__link">
+              <a href="/#about" className="footer__link">
                 О компании
               </a>
             </li>
             <li>
-              <a href="#id" className="footer__link">
+              <a href="/#footer" className="footer__link">
                 Контакты
               </a>
             </li>

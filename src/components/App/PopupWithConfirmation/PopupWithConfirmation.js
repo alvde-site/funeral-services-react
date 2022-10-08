@@ -15,7 +15,7 @@ function PopupWithConfirmation(props) {
           type="button"
           aria-label="Закрыть"
           onClick={props.onClose}
-        ></button>
+        > &#10006;</button>
         <form
           action="#"
           name={`${props.name}form`}

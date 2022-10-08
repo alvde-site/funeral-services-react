@@ -72,11 +72,6 @@ function Topnav(props) {
               </a>
             </li>
             <li>
-              <a href="/#advantages" className="topnav__link" onClick={handleToggleBurger}>
-                Преимущества
-              </a>
-            </li>
-            <li>
               <a href="/#portfolio" className="topnav__link" onClick={handleToggleBurger}>
                 Портфолио
               </a>
@@ -97,7 +92,7 @@ function Topnav(props) {
               </a>
             </li>
             <li>
-              <a href="#id" className="topnav__link" onClick={handleToggleBurger}>
+              <a href="#footer" className="topnav__link" onClick={handleToggleBurger}>
                 Контакты
               </a>
             </li>
