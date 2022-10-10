@@ -2,7 +2,7 @@
 Репозиторий для frontend проекта `Funeral-services`.
 Работа Демиденко Александра.
 
-## ССылки
+## Ссылки
 * [Ссылка на выложенную на сервер работающую фронтенд часть приложения: https://alvdediploma.nomoredomains.xyz/](https://alvdediploma.nomoredomains.xyz/)
 * [Ссылка на api: https://api.alvdediploma.nomoredomains.xyz](https://api.alvdediploma.nomoredomains.xyz)
 
