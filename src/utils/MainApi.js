@@ -102,8 +102,8 @@ class MainApi {
 
 export const MainApiSet = new MainApi({
   baseUrl: `${window.location.protocol}${
-    //process.env.REACT_APP_API_URL || "//localhost:3001"
-    "//api.alvdediploma.nomoredomains.xyz"
+    process.env.REACT_APP_API_URL || "//localhost:3001"
+    // "//api.alvdediploma.nomoredomains.xyz"
   }`,
   headers: {
     authorization: `Bearer ${localStorage.getItem("token")}`,
