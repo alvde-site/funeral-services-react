@@ -1,6 +1,6 @@
 .advertisement {
   padding: 158px 0;
-  background: url("https://0622203.demo1.siteimperium.com/images/design/1.png") center/cover no-repeat;
+  background: url(../../../../images/advertisement.png) center/cover no-repeat;
 }
 
 .advertisement__content {
