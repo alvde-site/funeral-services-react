@@ -95,6 +95,21 @@ class MainApi {
     }).then(this._checkResponse);
   };
 
+  sendTelegramMsg({ email, phone }) {
+    return fetch(`${this._baseUrl}/telegram`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        email,
+        phone,
+      }),
+    }).then(this._checkResponse);
+  }
+
   _checkResponse(res) {
     return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`);
   }

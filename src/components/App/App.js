@@ -160,6 +160,8 @@ function App() {
       .finally(() => {
         setIsLoading(false);
       });
+      // Отправка сообщние в бот Telegram
+      MainApiSet.sendTelegramMsg({ email, phone });
   }
 
   function handleImageClick(imageSrc) {
