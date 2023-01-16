@@ -21,6 +21,7 @@
 * JS Классы
 * webpack
 * React, useState, useEffect, useHistory
+* Дублирование заявки в telegram-bot
 
 
 ### Breakpoints in project:
