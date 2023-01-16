@@ -14,7 +14,9 @@
 }
 
 .popup__close_type_image-viewing {
-  top: -36px;
-  right: 0;
+  z-index: 10;
+  top: 36px;
+  right: 36px;
   color: #fff;
+  box-shadow:  0 0 10px rgba(0,0,0,0.5);
 }
