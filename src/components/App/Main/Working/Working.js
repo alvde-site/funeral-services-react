@@ -1,3 +1,8 @@
+import counseling from "../../../../images/counseling.png";
+import cemetery from "../../../../images/cemetery.png";
+import church from "../../../../images/church.png";
+import angel from "../../../../images/angel.png";
+
 function Working() {
   return (
     <section className="working" id={"working"}>
@@ -6,7 +11,7 @@ function Working() {
         <li className="working__item">
           <img
             className="working__icon"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/counseling-1.png"
+            src={counseling}
             alt="Заявка"
           ></img>
           <h3 className="working__item-title">ШАГ 1</h3>
@@ -18,7 +23,7 @@ function Working() {
         <li className="working__item">
           <img
             className="working__icon"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/cemetery-1.png"
+            src={cemetery}
             alt="Заявка"
           ></img>
           <h3 className="working__item-title">ШАГ 2</h3>
@@ -30,7 +35,7 @@ function Working() {
         <li className="working__item">
           <img
             className="working__icon"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/church-2-1.png"
+            src={church}
             alt="Заявка"
           ></img>
           <h3 className="working__item-title">ШАГ 3</h3>
@@ -40,7 +45,7 @@ function Working() {
         <li className="working__item">
           <img
             className="working__icon"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/angel-1.png"
+            src={angel}
             alt="Заявка"
           ></img>
           <h3 className="working__item-title">ШАГ 4</h3>

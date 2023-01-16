@@ -1,3 +1,5 @@
+import rectangle125 from "../../../../images/rectangle125.png";
+
 function About() {
   return (
     <section className="about" id={"about"}>
@@ -5,7 +7,7 @@ function About() {
       <div className="about__content">
         <img
           className="about__image"
-          src="https://0622203.demo1.siteimperium.com/images/design/rectangle-125-1.png"
+          src={rectangle125}
           alt="О нас"
         ></img>
         <div className="about__description">

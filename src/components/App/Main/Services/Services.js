@@ -1,3 +1,10 @@
+import rectangle from "../../../../images/rectangle.png";
+import rectangle1 from "../../../../images/rectangle1.png";
+import rectangle2 from "../../../../images/rectangle2.png";
+import rectangle3 from "../../../../images/rectangle3.png";
+import rectangle4 from "../../../../images/rectangle4.png";
+import rectangle5 from "../../../../images/rectangle5.png";
+
 function Services(props) {
   function handleOpenFeedback() {
     props.onOpenFeedback();
@@ -10,7 +17,7 @@ function Services(props) {
         <li className="services__card">
           <img
             className="services__image"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/rectangle-69.png"
+            src={rectangle}
             alt="Вертикальные"
           ></img>
           <h3 className="services__card-title">Вертикальные</h3>
@@ -27,7 +34,7 @@ function Services(props) {
         <li className="services__card">
           <img
             className="services__image"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/rectangle-69-1.png"
+            src={rectangle1}
             alt="Горизонтальные"
           ></img>
           <h3 className="services__card-title">Горизонтальные</h3>
@@ -44,7 +51,7 @@ function Services(props) {
         <li className="services__card">
           <img
             className="services__image"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/rectangle-69-2.png"
+            src={rectangle2}
             alt="С крестом"
           ></img>
           <h3 className="services__card-title">С крестом</h3>
@@ -61,7 +68,7 @@ function Services(props) {
         <li className="services__card">
           <img
             className="services__image"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/rectangle-69-3.png"
+            src={rectangle3}
             alt="Двойные"
           ></img>
           <h3 className="services__card-title">Двойные</h3>
@@ -78,7 +85,7 @@ function Services(props) {
         <li className="services__card">
           <img
             className="services__image"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/rectangle-69-4.png"
+            src={rectangle4}
             alt="Комбинированные"
           ></img>
           <h3 className="services__card-title">Комбинированные</h3>
@@ -95,7 +102,7 @@ function Services(props) {
         <li className="services__card">
           <img
             className="services__image"
-            src="https://0622203.demo1.siteimperium.com/images/2021/04/28/rectangle-69-5.png"
+            src={rectangle5}
             alt="Вертикальные"
           ></img>
           <h3 className="services__card-title">В форме сердца</h3>
