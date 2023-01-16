@@ -143,7 +143,7 @@ function App() {
         setIsInfoTooltipData({
           image: success,
           title: "Спасибо за заявку",
-          subtitle: "Менеджен обработает её в течение 30 минут и перезвонит!",
+          subtitle: "Менеджер обработает её в течение 30 минут и перезвонит!",
         });
       })
       .catch((err) => {
