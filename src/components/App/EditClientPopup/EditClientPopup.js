@@ -31,7 +31,7 @@ function EditClientPopup(props) {
     <div
       className={`popup popup_handle_client ${
         props.isEditClientFormOpen ? "popup_opened" : ""
-      }`}
+      }`} onClick={props.onOverlayClose}
     >
       <div className="popup__container">
         <button

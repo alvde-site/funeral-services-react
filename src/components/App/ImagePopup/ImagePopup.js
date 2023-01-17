@@ -5,7 +5,7 @@ function ImagePopup(props) {
     <div
       className={`popup popup_handle_${props.name} ${
         props.portfolioImage.isOpen && "popup_opened"
-      }`}
+      }`} onClick={props.onOverlayClose}
     >
       <div className="image-viewing">
         <button

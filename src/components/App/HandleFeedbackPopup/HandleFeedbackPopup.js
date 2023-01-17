@@ -18,7 +18,7 @@ function HandleFeedbackPopup(props) {
     <div
       className={`popup popup_handle_feedback ${
         props.isOpenFeedBack ? "popup_opened" : ""
-      }`}
+      }`} onClick={props.onOverlayClose}
     >
       <div className="popup__container">
         <button

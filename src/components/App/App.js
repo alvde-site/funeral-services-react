@@ -14,7 +14,7 @@ import { useFormWithValidation } from "../../utils/formValidator";
 import { portfolioImages, questionsDataList } from "../../utils/constants";
 import ScrollUp from "./ScrollUp/ScrollUp";
 import EditClientPopup from "./EditClientPopup/EditClientPopup";
-import InfoTooltip from "../InfoTooltip/InfoTooltip";
+import InfoTooltip from "./InfoTooltip/InfoTooltip";
 import success from "../../images/success.png";
 import fail from "../../images/fail.png";
 
@@ -134,6 +134,10 @@ function App() {
     setIsInfoTooltipPopupOpen(false);
   }
 
+  function handleOverlayClick(e) {
+    (e.currentTarget === e.target) && closeAllPopups();
+  }
+
   function handleCreateClient({ email, phone }) {
     MainApiSet.createClient({ email, phone })
       .then((newClient) => {
@@ -160,14 +164,14 @@ function App() {
       .finally(() => {
         setIsLoading(false);
       });
-      // Отправка сообщние в бот Telegram
-      MainApiSet.sendTelegramMsg({ email, phone })
+    // Отправка сообщние в бот Telegram
+    MainApiSet.sendTelegramMsg({ email, phone })
       .then((res) => {
         console.log("Успешно", res);
       })
       .catch((err) => {
         console.log("err", err);
-      })
+      });
   }
 
   function handleImageClick(imageSrc) {
@@ -333,6 +337,7 @@ function App() {
       <HandleFeedbackPopup
         isOpenFeedBack={isOpenFeedBack}
         onClose={closeAllPopups}
+        onOverlayClose={handleOverlayClick}
         onInputChange={handleChange}
         values={values}
         checks={checks}
@@ -343,6 +348,7 @@ function App() {
       <EditClientPopup
         isEditClientFormOpen={isEditClientFormOpen}
         onClose={closeAllPopups}
+        onOverlayClose={handleOverlayClick}
         openedClientData={openedClientData}
         onInputChange={handleEditClientInputChange}
         values={values}
@@ -354,11 +360,13 @@ function App() {
       <ImagePopup
         portfolioImage={selectedImage}
         onClose={closeAllPopups}
+        onOverlayClose={handleOverlayClick}
         name="image-viewing"
       />
       <PopupWithConfirmation
         isOpen={isConfirmationPopupOpen}
         onClose={closeAllPopups}
+        onOverlayClose={handleOverlayClick}
         onConfirmDelete={handleConfirmClientDelete}
         isLoading={isLoading}
       />
@@ -367,6 +375,7 @@ function App() {
         isOpen={isInfoTooltipPopupOpen}
         isInfoData={isInfoTooltipData}
         onClose={closeAllPopups}
+        onOverlayClose={handleOverlayClick}
       />
     </div>
   );
