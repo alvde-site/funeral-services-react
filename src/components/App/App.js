@@ -161,7 +161,13 @@ function App() {
         setIsLoading(false);
       });
       // Отправка сообщние в бот Telegram
-      MainApiSet.sendTelegramMsg({ email, phone });
+      MainApiSet.sendTelegramMsg({ email, phone })
+      .then((res) => {
+        console.log("Успешно", res);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      })
   }
 
   function handleImageClick(imageSrc) {
